@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">东融VR</string>
+    <string name="initialize">初始化界面</string>
+    <string name="login_user">手机号码</string>
+    <string name="login_psd">密码</string>
+    <string name="forget_psd">忘记密码</string>
+    <string name="not_account">没有账号么？</string>
+    <string name="phone_canot_empty">手机号码不能为空</string>
+    <string name="psd_canot_empty">密码不能为空</string>
+</resources>

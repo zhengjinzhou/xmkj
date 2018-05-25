@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3a9aff</color>
+    <color name="colorPrimaryDark">#3a9aff</color>
+    <color name="colorAccent">#3a9aff</color>
+
+    <color name="white">#ffffffff</color>
+    <!--通用触摸背景色-->
+    <color name="common_touch_bg">#E3E3E3</color>
+    <!--大部分字体颜色-->
+    <color name="common_text_color">#333333</color>
+    <!--整体背景颜色-->
+    <color name="common_bg">#eff1f4</color>
+    <!--横线颜色-->
+    <!--通用分割线细-->
+    <color name="common_divider_narrow">#B2B2B2</color>
+</resources>
