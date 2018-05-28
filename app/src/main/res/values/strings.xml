@@ -7,4 +7,28 @@
     <string name="not_account">没有账号么？</string>
     <string name="phone_canot_empty">手机号码不能为空</string>
     <string name="psd_canot_empty">密码不能为空</string>
+    <string name="txt_message">消息</string>
+    <string name="txt_life">生活</string>
+    <string name="txt_dynamic">动态</string>
+    <string name="txt_my">我的</string>
+
+    <!--下拉刷新-->
+    <string name="pull_to_refresh">下拉可以刷新</string>
+    <string name="release_to_refresh">释放立即刷新</string>
+    <string name="refreshing">正在刷新…</string>
+    <string name="not_updated_yet">暂未更新过</string>
+    <string name="updated_at">上次更新于%1$s前</string>
+    <string name="updated_just_now">刚刚更新</string>
+    <string name="time_error">时间有问题</string>
+    <string name="txt_myfans">我的粉丝</string>
+    <string name="txt_vr">VR支付</string>
+    <string name="txt_vrch">VRCH结算</string>
+    <string name="txt_members">会员充值</string>
+    <string name="txt_circulation">流通交易</string>
+    <string name="my_news">我的信息</string>
+    <string name="txt_real_name_authentication">实名认证</string>
+    <string name="txt_my_code">我的二维码</string>
+    <string name="txt_register">会员注册</string>
+    <string name="txt_help_center">帮助中心</string>
+    <string name="txt_my_fragment">我的</string>
 </resources>

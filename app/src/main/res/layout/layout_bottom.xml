@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:gravity="center">
+
+    <RelativeLayout
+        android:id="@+id/rlMessage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/ivMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/footer_1" />
+
+        <TextView
+            android:id="@+id/tvMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivMessage"
+            android:gravity="center"
+            android:text="@string/txt_message" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlLife"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/ivLife"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/footer_3" />
+
+        <TextView
+            android:id="@+id/tvLife"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivLife"
+            android:gravity="center"
+            android:text="@string/txt_life" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlIndex"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/ivIndex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/footer_5" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlDynamic"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/ivDynamic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/footer_7" />
+
+        <TextView
+            android:id="@+id/tvDynamic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivDynamic"
+            android:gravity="center"
+            android:text="@string/txt_dynamic" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlMy"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/ivMy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/footer_9" />
+
+        <TextView
+            android:id="@+id/tvMy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivMy"
+            android:gravity="center"
+            android:text="@string/txt_my" />
+    </RelativeLayout>
+</LinearLayout>

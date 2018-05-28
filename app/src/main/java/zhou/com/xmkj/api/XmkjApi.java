@@ -8,6 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Observable;
 import zhou.com.xmkj.base.Constant;
 import zhou.com.xmkj.bean.LoginBean;
+import zhou.com.xmkj.bean.UserInfoBean;
 
 /**
  * Created by zhou on 2018/5/25.
@@ -26,7 +27,18 @@ public class XmkjApi {
         service = retrofit.create(XmkjApiService.class);
     }
 
+    public static XmkjApi getInstance(OkHttpClient okHttpClient) {
+        if (xmkjApi == null) {
+            xmkjApi = new XmkjApi(okHttpClient);
+        }
+        return xmkjApi;
+    }
+
     public Observable<LoginBean> login(String username,String password){
         return service.login(username,password);
+    }
+
+    public Observable<UserInfoBean> getUserInfo(String id,String token){
+        return service.getUserInfo(id,token);
     }
 }

@@ -19,7 +19,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.LoginActivity"/>
+        <activity android:name=".ui.activity.LoginActivity" />
+        <activity android:name=".ui.activity.MainActivity" />
+        <activity android:name=".ui.activity.MyFansActivity" />
+        <activity android:name=".ui.activity.MyNewsActivity" />
+        <activity android:name=".ui.activity.RealNameAuthenticationActivity" />
+        <activity android:name=".ui.activity.CodeActivity" />
+        <activity android:name=".ui.activity.RegisterActivity" />
+        <activity android:name=".ui.activity.HelpActivity"></activity>
     </application>
 
 </manifest>

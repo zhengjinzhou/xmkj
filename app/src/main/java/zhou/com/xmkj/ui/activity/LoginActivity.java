@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import butterknife.BindView;
 import butterknife.OnClick;
 import zhou.com.xmkj.R;
+import zhou.com.xmkj.base.App;
 import zhou.com.xmkj.base.BaseActivity;
 import zhou.com.xmkj.bean.LoginBean;
 import zhou.com.xmkj.ui.contract.LoginContract;
@@ -30,7 +31,8 @@ public class LoginActivity extends BaseActivity implements LoginContract.View{
 
     @Override
     public void initData() {
-
+        etUsername.setText("33");
+        etPsd.setText("123456");
     }
 
     @Override
@@ -43,6 +45,7 @@ public class LoginActivity extends BaseActivity implements LoginContract.View{
     void onClick(View view){
         switch (view.getId()){
             case R.id.btLogin:
+                dialog.show();
                 mPresenter.login();
                 break;
             case R.id.ivLook:
@@ -53,8 +56,13 @@ public class LoginActivity extends BaseActivity implements LoginContract.View{
 
     @Override
     public void loginSuccess(LoginBean loginBean) {
-
         Log.d(TAG, "loginSuccess: "+loginBean.toString());
+        if (loginBean.getCode()==200){
+            App.getInstance().setLoginBean(loginBean);
+            startToActivity(MainActivity.class);
+        }else {
+            ToastUtils.showLongToast(loginBean.getMsg());
+        }
     }
 
     @Override
@@ -69,12 +77,13 @@ public class LoginActivity extends BaseActivity implements LoginContract.View{
 
     @Override
     public void showError() {
+        dialog.dismiss();
         ToastUtils.showLongToast("系统出错！");
     }
 
     @Override
     public void complete() {
-
+        dialog.dismiss();
     }
 
     @Override

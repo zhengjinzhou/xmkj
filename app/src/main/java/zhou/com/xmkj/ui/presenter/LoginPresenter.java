@@ -3,6 +3,7 @@ package zhou.com.xmkj.ui.presenter;
 import android.text.TextUtils;
 import android.util.Log;
 
+import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import rx.Observer;
 import rx.Subscription;
@@ -14,6 +15,7 @@ import zhou.com.xmkj.base.RxPresenter;
 import zhou.com.xmkj.bean.LoginBean;
 import zhou.com.xmkj.ui.activity.LoginActivity;
 import zhou.com.xmkj.ui.contract.LoginContract;
+import zhou.com.xmkj.utils.MD5;
 import zhou.com.xmkj.utils.ToastUtils;
 
 /**
@@ -41,13 +43,13 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
             return;
         }
 
-        Subscription subscription = xmkjApi.login(getUsername(), getPassword())
-                .subscribeOn(Schedulers.io())
+        Subscription subscription = xmkjApi.login(getUsername(), MD5.md5(getPassword()))
                 .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<LoginBean>() {
                     @Override
                     public void onCompleted() {
-
+                        mView.complete();
                     }
 
                     @Override
