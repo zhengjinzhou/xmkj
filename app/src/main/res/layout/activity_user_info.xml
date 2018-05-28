@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="zhou.com.xmkj.ui.activity.UserInfoActivity">
+
+    <include layout="@layout/layout_header" />
+
+    <zhou.com.xmkj.view.ReboundScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@+id/llHead">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rlMyIcon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/touch_bg">
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/dp_size_16"
+                    android:text="我的头像"
+                    android:textColor="@color/common_text_color" />
+
+                <ImageView
+                    android:id="@+id/iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:padding="@dimen/dp_size_16"
+                    android:src="@drawable/icon_2" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/CircleImageView"
+                    android:layout_width="54dp"
+                    android:layout_height="54dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/iv" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlNickname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_size_0.5"
+                android:background="@drawable/touch_bg">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/dp_size_16"
+                    android:text="@string/txt_nickname"
+                    android:textColor="@color/common_text_color" />
+
+                <ImageView
+                    android:id="@+id/ivNickname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:padding="@dimen/dp_size_16"
+                    android:src="@drawable/icon_2" />
+
+                <TextView
+                    android:id="@+id/tvNickname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/ivNickname"
+                    android:padding="@dimen/dp_size_16" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlAccount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_size_0.5"
+                android:background="@drawable/touch_bg">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/dp_size_16"
+                    android:text="@string/txt_account"
+                    android:textColor="@color/common_text_color" />
+
+                <ImageView
+                    android:id="@+id/ivAccount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:padding="@dimen/dp_size_16"
+                    android:src="@drawable/icon_2" />
+
+                <TextView
+                    android:id="@+id/tvAccount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/ivAccount"
+                    android:padding="@dimen/dp_size_16" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlGender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_size_0.5"
+                android:background="@drawable/touch_bg">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/dp_size_16"
+                    android:text="@string/txt_gender"
+                    android:textColor="@color/common_text_color" />
+
+                <ImageView
+                    android:id="@+id/ivGender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:padding="@dimen/dp_size_16"
+                    android:src="@drawable/icon_2" />
+
+                <TextView
+                    android:id="@+id/tvGender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/ivGender"
+                    android:padding="@dimen/dp_size_16" />
+            </RelativeLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_size_0.5" />
+        </LinearLayout>
+    </zhou.com.xmkj.view.ReboundScrollView>
+
+
+</LinearLayout>

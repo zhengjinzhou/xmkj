@@ -6,18 +6,24 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
+import de.hdodenhof.circleimageview.CircleImageView;
 import zhou.com.xmkj.R;
 import zhou.com.xmkj.adapter.base.BaseCommonAdapter;
 import zhou.com.xmkj.adapter.base.MainMuenSpacingItemDecoration;
 import zhou.com.xmkj.adapter.base.ViewHolder;
 import zhou.com.xmkj.base.App;
 import zhou.com.xmkj.base.BaseFragment;
+import zhou.com.xmkj.base.Constant;
 import zhou.com.xmkj.bean.MyBaseBean;
 import zhou.com.xmkj.bean.UserInfoBean;
 import zhou.com.xmkj.ui.activity.CodeActivity;
@@ -25,6 +31,7 @@ import zhou.com.xmkj.ui.activity.HelpActivity;
 import zhou.com.xmkj.ui.activity.MyNewsActivity;
 import zhou.com.xmkj.ui.activity.RealNameAuthenticationActivity;
 import zhou.com.xmkj.ui.activity.RegisterActivity;
+import zhou.com.xmkj.ui.activity.UserInfoActivity;
 import zhou.com.xmkj.ui.contract.UserInfoContract;
 import zhou.com.xmkj.ui.presenter.UserInfoPresenter;
 import zhou.com.xmkj.utils.ToastUtils;
@@ -40,6 +47,10 @@ public class MyFragment extends BaseFragment implements SwipeRefreshLayout.OnRef
     @BindView(R.id.ivBack) ImageView ivBack;
     @BindView(R.id.tvHead) TextView tvHead;
     @BindView(R.id.refreshableView) SwipeRefreshLayout refreshableView;
+    @BindView(R.id.CircleImageView) CircleImageView circleImageView;
+    @BindView(R.id.tvAccount) TextView tvAccount;
+    @BindView(R.id.tvName) TextView tvName;
+
     public static String TAG = "MyFragment-我的";
     private UserInfoPresenter mPresenter = new UserInfoPresenter(this);
 
@@ -97,6 +108,14 @@ public class MyFragment extends BaseFragment implements SwipeRefreshLayout.OnRef
     @Override
     public void getUserInfoSuccess(UserInfoBean userInfoBean) {
         Log.d(TAG, "getUserInfoSuccess: "+userInfoBean.toString());
+        if (userInfoBean.getCode()==200){
+            UserInfoBean.DataBean dataBean = userInfoBean.getData();
+            Glide.with(this).load(dataBean.getAvatar()).into(circleImageView);
+            tvAccount.setText(dataBean.getUsername());
+            tvName.setText(dataBean.getNickname());
+            App.getInstance().setUserInfoBean(userInfoBean);
+        }
+
     }
 
     @Override
@@ -126,4 +145,20 @@ public class MyFragment extends BaseFragment implements SwipeRefreshLayout.OnRef
         super.onDestroy();
     }
 
+    @OnClick({R.id.rlMyNews,R.id.rlMessage,R.id.rlLife,R.id.rlDynamic,R.id.rlMy})
+    void onClick(View view){
+        switch (view.getId()){
+            case R.id.rlMyNews://我的头像处-个人信息
+                startToActivity(UserInfoActivity.class);
+                break;
+            case R.id.rlMessage://我的粉丝
+                break;
+            case R.id.rlLife://流通交易
+                break;
+            case R.id.rlDynamic://VRCH结算
+                break;
+            case R.id.rlMy://会员充值
+                break;
+        }
+    }
 }

@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import zhou.com.xmkj.bean.LoginBean;
+import zhou.com.xmkj.bean.UserInfoBean;
 
 /**
  * Created by zhou on 2018/5/25.
@@ -14,6 +15,7 @@ public class App extends Application {
     private static App app;
     private static Context mContext;
     protected LoginBean loginBean;
+    protected UserInfoBean userInfoBean;
 
     @Override
     public void onCreate() {
@@ -36,5 +38,13 @@ public class App extends Application {
 
     public static Context getAppContext() {
         return mContext;
+    }
+
+    public UserInfoBean getUserInfoBean() {
+        return userInfoBean;
+    }
+
+    public void setUserInfoBean(UserInfoBean userInfoBean) {
+        this.userInfoBean = userInfoBean;
     }
 }

@@ -1,19 +1,17 @@
 package zhou.com.xmkj.ui.activity;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-
 import zhou.com.xmkj.R;
 import zhou.com.xmkj.base.BaseActivity;
 
 /**
- * 我的二维码
+ * Created by zhou on 2018/5/28.
+ * 账户信息
  */
-public class CodeActivity extends BaseActivity {
 
+public class AccountMessageActivity extends BaseActivity{
     @Override
     public int getLayout() {
-        return R.layout.activity_code;
+        return R.layout.activity_account_message;
     }
 
     @Override
@@ -25,5 +23,4 @@ public class CodeActivity extends BaseActivity {
     public void configView() {
 
     }
-
 }

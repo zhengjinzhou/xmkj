@@ -31,4 +31,10 @@
     <string name="txt_register">会员注册</string>
     <string name="txt_help_center">帮助中心</string>
     <string name="txt_my_fragment">我的</string>
+    <string name="my_userinfo">个人信息</string>
+    <string name="txt_gender">性别</string>
+    <string name="txt_account">用户账号</string>
+    <string name="txt_nickname">昵称</string>
+    <string name="register">注册</string>
+    <string name="get_code">获取</string>
 </resources>

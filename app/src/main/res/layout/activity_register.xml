@@ -1,9 +1,251 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="zhou.com.xmkj.ui.activity.RegisterActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <include layout="@layout/layout_header" />
+
+    <zhou.com.xmkj.view.ReboundScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ivLogo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_size_20"
+                android:src="@drawable/logo_2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/llHead" />
+
+            <TextView
+                android:id="@+id/tvLogo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_size_12"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:textColor="@color/common_text_color"
+                android:textSize="@dimen/sp_size_20"
+                app:layout_constraintTop_toBottomOf="@+id/ivLogo" />
+
+            <RelativeLayout
+                android:id="@+id/rlMan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_size_22"
+                android:paddingLeft="@dimen/dp_size_30"
+                android:paddingRight="@dimen/dp_size_30"
+                app:layout_constraintTop_toBottomOf="@+id/tvLogo">
+
+                <ImageView
+                    android:id="@+id/ivMan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/register_1" />
+
+                <EditText
+                    android:id="@+id/etMan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_size_22"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:hint="请填写推荐人"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@+id/ivMan"
+                    android:layout_marginTop="@dimen/dp_size_14"
+                    android:background="@color/common_divider_narrow" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rlMobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_size_16"
+                android:paddingLeft="@dimen/dp_size_30"
+                android:paddingRight="@dimen/dp_size_30"
+                app:layout_constraintTop_toBottomOf="@+id/rlUser">
+
+                <ImageView
+                    android:id="@+id/ivMobile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/register_4" />
+
+                <EditText
+                    android:id="@+id/etMobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_size_22"
+                    android:layout_toLeftOf="@+id/ivLook"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:hint="手机号码"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@+id/ivMobile"
+                    android:layout_marginTop="@dimen/dp_size_14"
+                    android:background="@color/common_divider_narrow" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_size_16"
+                android:paddingLeft="@dimen/dp_size_30"
+                android:paddingRight="@dimen/dp_size_30"
+                app:layout_constraintTop_toBottomOf="@+id/rlUser">
+
+                <ImageView
+                    android:id="@+id/ivEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/register_5" />
+
+                <EditText
+                    android:id="@+id/eEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_size_22"
+                    android:layout_toLeftOf="@+id/ivLook"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:hint="验证码"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:id="@+id/tvCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/login_3"
+                    android:text="@string/get_code" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@+id/ivEmail"
+                    android:layout_marginTop="@dimen/dp_size_14"
+                    android:background="@color/common_divider_narrow" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlPsd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_size_16"
+                android:paddingLeft="@dimen/dp_size_30"
+                android:paddingRight="@dimen/dp_size_30"
+                app:layout_constraintTop_toBottomOf="@+id/rlUser">
+
+                <ImageView
+                    android:id="@+id/ivPsd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/register_2" />
+
+                <EditText
+                    android:id="@+id/etPsd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_size_22"
+                    android:layout_toLeftOf="@+id/ivLook"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:hint="密码"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+                <ImageView
+                    android:id="@+id/ivLook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/login_3" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@+id/ivPsd"
+                    android:layout_marginTop="@dimen/dp_size_14"
+                    android:background="@color/common_divider_narrow" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_size_8"
+                android:gravity="center"
+                android:text="数字、字母、特殊符号至少两种组合，含6位数以上"
+                android:textColor="@color/common_divider_narrow" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_size_16"
+                android:gravity="center">
+
+                <CheckBox
+                    android:id="@+id/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true" />
+
+                <TextView
+                    android:id="@+id/tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/checkbox"
+                    android:text="注册即代表同意" />
+
+                <TextView
+                    android:id="@+id/tvAgreement"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/tv"
+                    android:text="《用户协议》"
+                    android:textColor="@color/common_text_color" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_size_16"
+                android:background="@drawable/bg_login"
+                android:text="注册"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_size_16" />
+        </LinearLayout>
+    </zhou.com.xmkj.view.ReboundScrollView>
+</LinearLayout>
