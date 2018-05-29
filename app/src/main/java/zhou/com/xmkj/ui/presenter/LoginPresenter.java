@@ -34,14 +34,7 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
     }
     @Override
     public void login() {
-        if (TextUtils.isEmpty(getUsername())){
-            ToastUtils.showLongToast(loginActivity.getString(R.string.phone_canot_empty));
-            return;
-        }
-        if (TextUtils.isEmpty(getPassword())){
-            ToastUtils.showLongToast(loginActivity.getString(R.string.psd_canot_empty));
-            return;
-        }
+
 
         Subscription subscription = xmkjApi.login(getUsername(), MD5.md5(getPassword()))
                 .observeOn(AndroidSchedulers.mainThread())
@@ -54,7 +47,6 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.d("------", "onError: "+e.getMessage());
                         mView.showError();
                     }
 

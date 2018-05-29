@@ -28,6 +28,7 @@ import zhou.com.xmkj.bean.MyBaseBean;
 import zhou.com.xmkj.bean.UserInfoBean;
 import zhou.com.xmkj.ui.activity.CodeActivity;
 import zhou.com.xmkj.ui.activity.HelpActivity;
+import zhou.com.xmkj.ui.activity.MyFansActivity;
 import zhou.com.xmkj.ui.activity.MyNewsActivity;
 import zhou.com.xmkj.ui.activity.RealNameAuthenticationActivity;
 import zhou.com.xmkj.ui.activity.RegisterActivity;
@@ -96,13 +97,12 @@ public class MyFragment extends BaseFragment implements SwipeRefreshLayout.OnRef
     public void configViews() {
         ivBack.setVisibility(View.GONE);
         tvHead.setText(R.string.txt_my_fragment);
-        onRefresh();
+        mPresenter.getUserInfo();
     }
 
     @Override
     public void onRefresh() {
         refreshableView.setRefreshing(true);
-        mPresenter.getUserInfo();
     }
 
     @Override
@@ -152,6 +152,7 @@ public class MyFragment extends BaseFragment implements SwipeRefreshLayout.OnRef
                 startToActivity(UserInfoActivity.class);
                 break;
             case R.id.rlMessage://我的粉丝
+                startToActivity(MyFansActivity.class);
                 break;
             case R.id.rlLife://流通交易
                 break;

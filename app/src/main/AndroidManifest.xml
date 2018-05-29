@@ -3,6 +3,8 @@
     package="zhou.com.xmkj">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".base.App"
@@ -28,9 +30,11 @@
         <activity android:name=".ui.activity.RegisterActivity" />
         <activity android:name=".ui.activity.HelpActivity" />
         <activity android:name=".ui.activity.UserInfoActivity" />
-        <activity android:name=".ui.activity.AccountMessageActivity"/>
-        <activity android:name=".ui.activity.GoodsActivity"/>
-        <activity android:name=".ui.activity.LabelActivity"/>
+        <activity android:name=".ui.activity.AccountMessageActivity" />
+        <activity android:name=".ui.activity.GoodsActivity" />
+        <activity android:name=".ui.activity.LabelActivity" />
+        <activity android:name=".ui.activity.FansPointActivity" />
+        <activity android:name=".ui.activity.AgreementActivity"></activity>
     </application>
 
 </manifest>

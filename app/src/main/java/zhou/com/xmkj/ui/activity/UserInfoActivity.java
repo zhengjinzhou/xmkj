@@ -29,7 +29,6 @@ import zhou.com.xmkj.bean.MyBaseBean;
 public class UserInfoActivity extends BaseActivity {
 
     @BindView(R.id.tvHead) TextView tvHead;
-    @BindView(R.id.recyclerView) RecyclerView recyclerView;
     @BindView(R.id.tvNickname) TextView tvNickname;
     @BindView(R.id.CircleImageView) CircleImageView circleImageView;
     @BindView(R.id.tvAccount) TextView tvAccount;
@@ -42,44 +41,41 @@ public class UserInfoActivity extends BaseActivity {
 
     @Override
     public void initData() {
-        List<MyBaseBean> data = new ArrayList<>();
-        data.add(new MyBaseBean(AccountMessageActivity.class,"账户信息",0));
-        data.add(new MyBaseBean(GoodsActivity.class,"收货地址",0));
-        data.add(new MyBaseBean(LabelActivity.class,"个性标签",0));
-
-        BaseCommonAdapter adapter = new BaseCommonAdapter<MyBaseBean>(this, R.layout.recycle_my, data) {
-            @Override
-            public void convert(ViewHolder holder, final MyBaseBean baseBean, int position) {
-                holder.setText(R.id.tv_name,baseBean.getName());
-
-                holder.setOnClickListener(R.id.layout, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        startToActivity(baseBean.getaClass());
-                    }
-                });
-            }
-        };
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter);
+        tvNickname.setText(App.getInstance().getUserInfoBean().getData().getNickname());
+        tvAccount.setText(App.getInstance().getUserInfoBean().getData().getUsername());
+        int gender = App.getInstance().getUserInfoBean().getData().getGender();
+        if (gender == 1) {
+            tvGender.setText(R.string.male);
+        } else {
+            tvGender.setText(R.string.female);
+        }
     }
 
     @Override
     public void configView() {
         tvHead.setText(R.string.my_userinfo);
         Glide.with(this).load(App.getInstance().getUserInfoBean().getData().getAvatar()).into(circleImageView);
-        tvNickname.setText(App.getInstance().getUserInfoBean().getData().getNickname());
-        tvAccount.setText(App.getInstance().getUserInfoBean().getData().getUsername());
-        tvGender.setText(App.getInstance().getUserInfoBean().getData().getGender());
     }
 
-    @OnClick({R.id.ivBack,R.id.rlMyIcon})
+    @OnClick({R.id.ivBack, R.id.rlMyIcon, R.id.rlMessage, R.id.rlAddress, R.id.rlTip, R.id.rlGender})
     void onClick(View view) {
         switch (view.getId()) {
             case R.id.ivBack:
                 finish();
                 break;
+            case R.id.rlGender://性别
+
+                break;
             case R.id.rlMyIcon:
+
+                break;
+            case R.id.rlMessage://账户信息
+
+                break;
+            case R.id.rlAddress://收货地址
+
+                break;
+            case R.id.rlTip://个性标签
 
                 break;
         }

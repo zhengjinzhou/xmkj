@@ -12,7 +12,8 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-        Handler().postDelayed({ startActivity(Intent(applicationContext, LoginActivity::class.java)) }, 200)
+        Handler().postDelayed({ startActivity(Intent(applicationContext, LoginActivity::class.java)) }, 2000)
+        finish()
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);// 设置全屏
     }
 }

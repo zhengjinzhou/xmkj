@@ -9,7 +9,7 @@
 
     <include layout="@layout/layout_header" />
 
-    <zhou.com.xmkj.view.ReboundScrollView
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -94,11 +94,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp_size_22"
-                    android:layout_toLeftOf="@+id/ivLook"
                     android:background="@null"
                     android:gravity="center"
                     android:hint="手机号码"
-                    android:inputType="textPassword"
                     android:maxLines="1"
                     android:singleLine="true" />
 
@@ -131,11 +129,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp_size_22"
-                    android:layout_toLeftOf="@+id/ivLook"
                     android:background="@null"
                     android:gravity="center"
                     android:hint="验证码"
-                    android:inputType="textPassword"
                     android:maxLines="1"
                     android:singleLine="true" />
 
@@ -144,6 +140,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
+                    android:paddingLeft="@dimen/dp_size_16"
                     android:src="@drawable/login_3"
                     android:text="@string/get_code" />
 
@@ -247,5 +244,5 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/sp_size_16" />
         </LinearLayout>
-    </zhou.com.xmkj.view.ReboundScrollView>
+    </android.support.v4.widget.NestedScrollView>
 </LinearLayout>

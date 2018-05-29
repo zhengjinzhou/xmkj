@@ -1,9 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="zhou.com.xmkj.ui.activity.MyFansActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <include layout="@layout/layout_header"/>
+
+    <RelativeLayout
+        android:id="@+id/rlFansPoint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_size_16"
+        android:layout_marginRight="@dimen/dp_size_16"
+        android:layout_marginTop="@dimen/dp_size_16"
+        android:background="@drawable/icon_39">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/dp_size_30"
+            android:paddingTop="@dimen/dp_size_16"
+            android:src="@drawable/icon_44" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/fans_point"
+            android:textColor="#F35748"
+            android:textSize="@dimen/sp_size_16" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlSumFans"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_size_16"
+        android:layout_marginRight="@dimen/dp_size_16"
+        android:layout_marginTop="@dimen/dp_size_16"
+        android:background="@drawable/icon_40">
+
+        <ImageView
+            android:id="@+id/ivFans"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/dp_size_30"
+            android:paddingTop="@dimen/dp_size_16"
+            android:src="@drawable/icon_45" />
+
+        <TextView
+            android:layout_below="@+id/ivFans"
+            android:paddingLeft="@dimen/dp_size_22"
+            android:layout_marginTop="@dimen/dp_size_5"
+            android:textColor="@color/white"
+            android:text="总粉丝"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tvSumFans"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="#DB3BFF"
+            android:textSize="@dimen/sp_size_16" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlShardFans"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_size_16"
+        android:layout_marginRight="@dimen/dp_size_16"
+        android:layout_marginTop="@dimen/dp_size_16"
+        android:background="@drawable/icon_41">
+
+        <ImageView
+            android:id="@+id/ivShareFans"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/dp_size_30"
+            android:paddingTop="@dimen/dp_size_16"
+            android:src="@drawable/icon_45" />
+
+        <TextView
+            android:layout_below="@+id/ivShareFans"
+            android:paddingLeft="@dimen/dp_size_16"
+            android:layout_marginTop="@dimen/dp_size_5"
+            android:textColor="@color/white"
+            android:text="分享粉丝"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tvShardFans"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="#EE9B1B"
+            android:textSize="@dimen/sp_size_16" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlGongXiang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_size_16"
+        android:layout_marginRight="@dimen/dp_size_16"
+        android:layout_marginTop="@dimen/dp_size_16"
+        android:background="@drawable/icon_42">
+
+        <ImageView
+            android:id="@+id/ivGongXiang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/dp_size_30"
+            android:paddingTop="@dimen/dp_size_16"
+            android:src="@drawable/icon_45" />
+
+        <TextView
+            android:layout_below="@+id/ivGongXiang"
+            android:paddingLeft="@dimen/dp_size_16"
+            android:layout_marginTop="@dimen/dp_size_5"
+            android:textColor="@color/white"
+            android:text="共享粉丝"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tvGongXiang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="#31AD95"
+            android:textSize="@dimen/sp_size_16" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlCommunityFans"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_size_16"
+        android:layout_marginRight="@dimen/dp_size_16"
+        android:layout_marginTop="@dimen/dp_size_16"
+        android:background="@drawable/icon_43">
+
+        <ImageView
+            android:id="@+id/ivCommunity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/dp_size_30"
+            android:paddingTop="@dimen/dp_size_16"
+            android:src="@drawable/icon_45" />
+
+        <TextView
+            android:layout_below="@+id/ivCommunity"
+            android:paddingLeft="@dimen/dp_size_16"
+            android:layout_marginTop="@dimen/dp_size_5"
+            android:textColor="@color/white"
+            android:text="社群粉丝"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tvCommunity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="#3A9AFF"
+            android:textSize="@dimen/sp_size_16" />
+    </RelativeLayout>
+</LinearLayout>

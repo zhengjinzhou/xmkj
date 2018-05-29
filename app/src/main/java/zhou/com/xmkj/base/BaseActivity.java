@@ -33,8 +33,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         mContext = this;
         ButterKnife.bind(this);
         dialog = new LoadDialog(this,false,"正在加载...");
-        initData();
         configView();
+        initData();
         getstureDe();
     }
 

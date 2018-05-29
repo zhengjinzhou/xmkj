@@ -1,5 +1,6 @@
 package zhou.com.xmkj.ui.activity;
 
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -41,14 +42,25 @@ public class LoginActivity extends BaseActivity implements LoginContract.View{
         mPresenter.attachView(this);
     }
 
-    @OnClick({R.id.btLogin,R.id.ivLook})
+    @OnClick({R.id.btLogin,R.id.ivLook,R.id.tvRegister})
     void onClick(View view){
         switch (view.getId()){
             case R.id.btLogin:
+                if (TextUtils.isEmpty(etUsername.getText().toString().trim())){
+                    ToastUtils.showLongToast(getString(R.string.phone_canot_empty));
+                    return;
+                }
+                if (TextUtils.isEmpty(etPsd.getText().toString().trim())){
+                    ToastUtils.showLongToast(getString(R.string.psd_canot_empty));
+                    return;
+                }
                 dialog.show();
                 mPresenter.login();
                 break;
             case R.id.ivLook:
+                break;
+            case R.id.tvRegister:
+                startToActivity(RegisterActivity.class);
                 break;
         }
     }
@@ -56,6 +68,7 @@ public class LoginActivity extends BaseActivity implements LoginContract.View{
 
     @Override
     public void loginSuccess(LoginBean loginBean) {
+        dialog.dismiss();
         Log.d(TAG, "loginSuccess: "+loginBean.toString());
         if (loginBean.getCode()==200){
             App.getInstance().setLoginBean(loginBean);
