@@ -44,4 +44,14 @@
     <string name="man_tip">个性签名</string>
     <string name="fans_point">粉丝接入图</string>
     <string name="txt_refresh">刷新</string>
+    <string name="help_doc">帮助文档</string>
+    <string name="work_order">工单</string>
+    <string name="online_service">在线客服</string>
+    <string name="help_center">帮助中心</string>
+    <string name="tip_setting">个性签名设置</string>
+
+    <string name="fans_sum">总粉丝</string>
+    <string name="fans_share">分享粉丝</string>
+    <string name="fans_shared">共享粉丝</string>
+    <string name="fans_Community">社群粉丝</string>
 </resources>

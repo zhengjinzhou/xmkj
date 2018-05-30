@@ -47,6 +47,7 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
 
                     @Override
                     public void onError(Throwable e) {
+                        Log.d("-----", "onError: "+e.getMessage());
                         mView.showError();
                     }
 

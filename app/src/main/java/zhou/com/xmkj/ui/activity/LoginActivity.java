@@ -42,9 +42,12 @@ public class LoginActivity extends BaseActivity implements LoginContract.View{
         mPresenter.attachView(this);
     }
 
-    @OnClick({R.id.btLogin,R.id.ivLook,R.id.tvRegister})
+    @OnClick({R.id.btLogin,R.id.ivLook,R.id.tvRegister,R.id.tvForget})
     void onClick(View view){
         switch (view.getId()){
+            case R.id.tvForget:
+                startToActivity(ForgetActivity.class);
+                break;
             case R.id.btLogin:
                 if (TextUtils.isEmpty(etUsername.getText().toString().trim())){
                     ToastUtils.showLongToast(getString(R.string.phone_canot_empty));

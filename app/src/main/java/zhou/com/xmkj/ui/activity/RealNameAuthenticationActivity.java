@@ -151,8 +151,8 @@ public class RealNameAuthenticationActivity extends BaseActivity {
                     try {
                         Bitmap bitmap = BitmapFactory.decodeStream(getContentResolver()
                                 .openInputStream(imageUri));
-                        ivZhengMian.setImageBitmap(bitmap);
-                        
+                        //ivZhengMian.setImageBitmap(bitmap);
+                        setUriPhoto(bitmap);
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     }
@@ -166,6 +166,17 @@ public class RealNameAuthenticationActivity extends BaseActivity {
                 break;
         }
 
+    }
+
+    private void setUriPhoto(Bitmap bitmap) {
+        switch (index){
+            case 0:
+                ivZhengMian.setImageBitmap(bitmap);
+                break;
+            case 1:
+                ivFanMian.setImageBitmap(bitmap);
+                break;
+        }
     }
 
     @TargetApi(19)
@@ -196,6 +207,10 @@ public class RealNameAuthenticationActivity extends BaseActivity {
         setPhoto(imagePath);
     }
 
+    /**
+     * 选择相册---显示照片
+     * @param imagePath
+     */
     private void setPhoto(String imagePath) {
         switch (index){
             case 0:
@@ -206,20 +221,6 @@ public class RealNameAuthenticationActivity extends BaseActivity {
                 break;
         }
     }
-
-    /**
-     * 显示照片
-     * @param imagePath
-     */
-    private void displayImage(String imagePath) {
-        if (imagePath != null) {
-            Bitmap bitmap = BitmapFactory.decodeFile(imagePath);
-            ivZhengMian.setImageBitmap(bitmap);
-        } else {
-            ToastUtils.showLongToast("获取图片失败，请重试");
-        }
-    }
-
     /**
      * 查找照片
      * @param uri

@@ -1,12 +1,10 @@
 package zhou.com.xmkj.ui.fragment;
 
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -19,20 +17,18 @@ import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
 import zhou.com.xmkj.R;
 import zhou.com.xmkj.adapter.base.BaseCommonAdapter;
-import zhou.com.xmkj.adapter.base.MainMuenSpacingItemDecoration;
 import zhou.com.xmkj.adapter.base.ViewHolder;
 import zhou.com.xmkj.base.App;
 import zhou.com.xmkj.base.BaseFragment;
-import zhou.com.xmkj.base.Constant;
 import zhou.com.xmkj.bean.MyBaseBean;
 import zhou.com.xmkj.bean.UserInfoBean;
 import zhou.com.xmkj.ui.activity.CodeActivity;
-import zhou.com.xmkj.ui.activity.HelpActivity;
+import zhou.com.xmkj.ui.activity.help.HelpActivity;
 import zhou.com.xmkj.ui.activity.MyFansActivity;
-import zhou.com.xmkj.ui.activity.MyNewsActivity;
 import zhou.com.xmkj.ui.activity.RealNameAuthenticationActivity;
 import zhou.com.xmkj.ui.activity.RegisterActivity;
 import zhou.com.xmkj.ui.activity.UserInfoActivity;
+import zhou.com.xmkj.ui.activity.help.HelpDocActivity;
 import zhou.com.xmkj.ui.contract.UserInfoContract;
 import zhou.com.xmkj.ui.presenter.UserInfoPresenter;
 import zhou.com.xmkj.utils.ToastUtils;
@@ -42,12 +38,11 @@ import zhou.com.xmkj.utils.ToastUtils;
  * 我的
  */
 
-public class MyFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener,UserInfoContract.View{
+public class MyFragment extends BaseFragment implements UserInfoContract.View{
 
     @BindView(R.id.recyclerView) RecyclerView recyclerView;
     @BindView(R.id.ivBack) ImageView ivBack;
     @BindView(R.id.tvHead) TextView tvHead;
-    @BindView(R.id.refreshableView) SwipeRefreshLayout refreshableView;
     @BindView(R.id.CircleImageView) CircleImageView circleImageView;
     @BindView(R.id.tvAccount) TextView tvAccount;
     @BindView(R.id.tvName) TextView tvName;
@@ -70,7 +65,7 @@ public class MyFragment extends BaseFragment implements SwipeRefreshLayout.OnRef
     @Override
     public void initData() {
         List<MyBaseBean> data = new ArrayList<>();
-        data.add(new MyBaseBean(MyNewsActivity.class,getString(R.string.my_news),R.drawable.icon_11));
+        data.add(new MyBaseBean(HelpDocActivity.class,getString(R.string.my_news),R.drawable.icon_11));
         data.add(new MyBaseBean(RealNameAuthenticationActivity.class,getString(R.string.txt_real_name_authentication),R.drawable.icon_47));
         data.add(new MyBaseBean(CodeActivity.class,getString(R.string.txt_my_code),R.drawable.icon_10));
         data.add(new MyBaseBean(RegisterActivity.class,getString(R.string.txt_register),R.drawable.icon_9));
@@ -100,10 +95,6 @@ public class MyFragment extends BaseFragment implements SwipeRefreshLayout.OnRef
         mPresenter.getUserInfo();
     }
 
-    @Override
-    public void onRefresh() {
-        refreshableView.setRefreshing(true);
-    }
 
     @Override
     public void getUserInfoSuccess(UserInfoBean userInfoBean) {

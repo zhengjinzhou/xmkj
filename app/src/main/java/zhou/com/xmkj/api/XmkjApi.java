@@ -8,6 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Observable;
 import zhou.com.xmkj.base.Constant;
 import zhou.com.xmkj.bean.BaseBean;
+import zhou.com.xmkj.bean.FansListBean;
 import zhou.com.xmkj.bean.LoginBean;
 import zhou.com.xmkj.bean.MyFansBean;
 import zhou.com.xmkj.bean.UserInfoBean;
@@ -54,5 +55,9 @@ public class XmkjApi {
 
     public Observable<BaseBean> register(String mobile,String code,String password,String pusername){
         return service.register(mobile,code,password,pusername);
+    }
+
+    public Observable<FansListBean> getFansList(int id,String token,int page,int pagesize,int type){
+        return service.getFansList(id,token,page,pagesize,type);
     }
 }

@@ -58,12 +58,13 @@
                     android:id="@+id/etMan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dp_size_22"
+                    android:layout_marginLeft="@dimen/dp_size_8"
+                    android:layout_toRightOf="@+id/ivMan"
                     android:background="@null"
-                    android:gravity="center"
                     android:hint="请填写推荐人"
                     android:maxLines="1"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:textSize="@dimen/sp_size_15" />
 
                 <View
                     android:layout_width="match_parent"
@@ -93,12 +94,13 @@
                     android:id="@+id/etMobile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dp_size_22"
+                    android:layout_marginLeft="@dimen/dp_size_8"
+                    android:layout_toRightOf="@+id/ivMobile"
                     android:background="@null"
-                    android:gravity="center"
                     android:hint="手机号码"
                     android:maxLines="1"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:textSize="@dimen/sp_size_15" />
 
                 <View
                     android:layout_width="match_parent"
@@ -128,12 +130,13 @@
                     android:id="@+id/eEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dp_size_22"
+                    android:layout_marginLeft="@dimen/dp_size_8"
+                    android:layout_toRightOf="@+id/ivEmail"
                     android:background="@null"
-                    android:gravity="center"
                     android:hint="验证码"
                     android:maxLines="1"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:textSize="@dimen/sp_size_15" />
 
                 <TextView
                     android:id="@+id/tvCode"
@@ -158,8 +161,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_size_16"
                 android:paddingLeft="@dimen/dp_size_30"
-                android:paddingRight="@dimen/dp_size_30"
-                app:layout_constraintTop_toBottomOf="@+id/rlUser">
+                android:paddingRight="@dimen/dp_size_30">
 
                 <ImageView
                     android:id="@+id/ivPsd"
@@ -171,14 +173,14 @@
                     android:id="@+id/etPsd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dp_size_22"
-                    android:layout_toLeftOf="@+id/ivLook"
+                    android:layout_marginLeft="@dimen/dp_size_8"
+                    android:layout_toRightOf="@+id/ivPsd"
                     android:background="@null"
-                    android:gravity="center"
                     android:hint="密码"
                     android:inputType="textPassword"
                     android:maxLines="1"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:textSize="@dimen/sp_size_15" />
 
                 <ImageView
                     android:id="@+id/ivLook"

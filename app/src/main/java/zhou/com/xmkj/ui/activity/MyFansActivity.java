@@ -38,21 +38,24 @@ public class MyFansActivity extends BaseActivity implements MyFansContract.View{
     @Override
     public void configView() {
         tvHead.setText(getString(R.string.txt_myfans));
+        dialog.show();
         mPresenter.attachView(this);
     }
 
-    @OnClick({R.id.rlFansPoint,R.id.rlSumFans}) void onClick(View view){
+    @OnClick({R.id.rlFansPoint,R.id.rlSumFans,R.id.rlShardFans,R.id.rlGongXiang,R.id.rlCommunityFans,R.id.ivBack})
+    void onClick(View view){
         switch (view.getId()){
+            case R.id.ivBack:
+                finish();
+                break;
             case R.id.rlFansPoint://粉丝接入点图
                 startToActivity(FansPointActivity.class);
                 break;
             case R.id.rlSumFans://总粉丝
-                break;
             case R.id.rlShardFans://分享粉丝
-                break;
             case R.id.rlGongXiang://共享粉丝
-                break;
             case R.id.rlCommunityFans://社群粉丝
+                startToActivity(FansActivity.class);
                 break;
         }
     }
@@ -86,7 +89,7 @@ public class MyFansActivity extends BaseActivity implements MyFansContract.View{
 
     @Override
     public void complete() {
-
+        dialog.dismiss();
     }
 
     @Override

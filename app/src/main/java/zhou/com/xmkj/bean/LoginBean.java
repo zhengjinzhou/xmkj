@@ -1,6 +1,7 @@
 package zhou.com.xmkj.bean;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by zhou on 2018/5/25.
@@ -20,6 +21,7 @@ public class LoginBean implements Serializable{
     private String msg;
     private String time;
     private DataBean data;
+    private List<?> data2;
 
     public int getCode() {
         return code;

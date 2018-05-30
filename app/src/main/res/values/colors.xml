@@ -15,4 +15,5 @@
     <!--通用分割线细-->
     <color name="common_divider_narrow">#B2B2B2</color>
     <color name="red">#f12d2d</color>
+    <color name="touming">#00000000</color>
 </resources>

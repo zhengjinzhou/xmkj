@@ -1,24 +1,23 @@
 package zhou.com.xmkj.bean;
 
-import java.util.List;
-
 /**
  * Created by zhou on 2018/5/29.
  */
 
 public class BaseBean {
 
+
     /**
-     * code : 200
-     * msg : 注册成功
-     * time : 1527565165
-     * data : []
+     * code : 403
+     * msg : 请重新登录!
+     * time : 1527669909
+     * data : null
      */
 
     private int code;
     private String msg;
     private String time;
-    private List<?> data;
+    private Object data;
 
     public int getCode() {
         return code;
@@ -44,11 +43,11 @@ public class BaseBean {
         this.time = time;
     }
 
-    public List<?> getData() {
+    public Object getData() {
         return data;
     }
 
-    public void setData(List<?> data) {
+    public void setData(Object data) {
         this.data = data;
     }
 

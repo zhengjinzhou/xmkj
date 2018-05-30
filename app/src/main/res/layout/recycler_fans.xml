@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:layout_margin="@dimen/dp_size_16"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/ivAvater"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_size_8"
+        android:src="@drawable/avater" />
+
+    <TextView
+        android:id="@+id/tvUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_size_5"
+        android:layout_toRightOf="@+id/ivAvater"
+        android:text="zhegnjinzhou" />
+
+    <TextView
+        android:id="@+id/tvNickName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvUserName"
+        android:layout_toRightOf="@+id/ivAvater"
+        android:text="zhegnjinzhou" />
+
+    <TextView
+        android:textSize="12sp"
+        android:padding="@dimen/dp_size_8"
+        android:layout_alignParentRight="true"
+        android:text="3月24号"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_size_1"
+        android:layout_below="@+id/ivAvater"
+        android:background="@color/common_divider_narrow" />
+</RelativeLayout>

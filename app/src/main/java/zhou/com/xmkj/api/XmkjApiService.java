@@ -5,6 +5,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 import rx.Observable;
 import zhou.com.xmkj.bean.BaseBean;
+import zhou.com.xmkj.bean.FansListBean;
 import zhou.com.xmkj.bean.LoginBean;
 import zhou.com.xmkj.bean.MyFansBean;
 import zhou.com.xmkj.bean.UserInfoBean;
@@ -79,4 +80,22 @@ public interface XmkjApiService {
              @Field("code") String code,
              @Field("password") String password,
              @Field("pusername") String pusername);
+
+    /**
+     * 获取粉丝列表
+     * @param id
+     * @param token
+     * @param page
+     * @param pagesize
+     * @param type
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("fans/getFansList")
+    Observable<FansListBean>
+    getFansList(@Field("id")int id,
+                @Field("token")String token,
+                @Field("page")int page,
+                @Field("pagesize")int pagesize,
+                @Field("type") int type);
 }
