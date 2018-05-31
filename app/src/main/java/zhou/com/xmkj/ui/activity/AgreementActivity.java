@@ -4,12 +4,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import zhou.com.xmkj.R;
+import zhou.com.xmkj.base.BaseActivity;
 
-public class AgreementActivity extends AppCompatActivity {
+public class AgreementActivity extends BaseActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_agreement);
+    public int getLayout() {
+        return R.layout.activity_agreement;
+    }
+
+    @Override
+    public void initData() {
+
+    }
+
+    @Override
+    public void configView() {
+
     }
 }

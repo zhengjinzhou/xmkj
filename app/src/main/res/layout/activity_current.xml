@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg"
+    android:orientation="vertical"
+    tools:context="zhou.com.xmkj.ui.activity.CurrentActivity">
+
+    <include layout="@layout/layout_header" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_size_8"
+                android:background="@color/white"
+                android:gravity="center"
+                android:padding="@dimen/dp_size_16">
+
+                <RelativeLayout
+                    android:id="@+id/rlMessage"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/touch_bg">
+
+                    <ImageView
+                        android:id="@+id/ivMessage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/icon_222" />
+
+                    <TextView
+                        android:id="@+id/tvMessage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/ivMessage"
+                        android:gravity="center"
+                        android:text="@string/current_trading" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlLife"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/touch_bg">
+
+                    <ImageView
+                        android:id="@+id/ivLife"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/icon_3" />
+
+                    <TextView
+                        android:id="@+id/tvLife"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/ivLife"
+                        android:gravity="center"
+                        android:text="@string/Current_investment" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/rlDynamic"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/touch_bg">
+
+                    <ImageView
+                        android:id="@+id/ivDynamic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/icon_111" />
+
+                    <TextView
+                        android:id="@+id/tvDynamic"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/ivDynamic"
+                        android:gravity="center"
+                        android:text="@string/Convert_trading" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlMy"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/touch_bg">
+
+                    <ImageView
+                        android:id="@+id/ivMy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/icon_4" />
+
+                    <TextView
+                        android:id="@+id/tvMy"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/ivMy"
+                        android:gravity="center"
+                        android:text="@string/trading_floor" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_size_8"
+                android:background="@color/white" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

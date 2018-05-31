@@ -26,7 +26,7 @@ public abstract class BaseFragment extends Fragment {
     protected Context mContext;
     protected View parentView;
     protected FragmentActivity activity;
-    private LoadDialog dialog;
+    protected LoadDialog dialog;
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {

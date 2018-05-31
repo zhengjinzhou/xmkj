@@ -24,6 +24,7 @@ public class FansPointActivity extends BaseActivity {
     @BindView(R.id.webView) WebView webView;
     @BindView(R.id.tvHead) TextView tvHead;
     @BindView(R.id.tvRight) TextView tvRight;
+    private String url;
 
     @Override
     public int getLayout() {
@@ -35,9 +36,12 @@ public class FansPointActivity extends BaseActivity {
         webView.getSettings().setUseWideViewPort(true);
         webView.getSettings().setLoadWithOverviewMode(true);
         webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setSupportZoom(true);
+        webView.getSettings().setBuiltInZoomControls(true);
+        webView.getSettings().setDisplayZoomControls(false);
         webView.setWebChromeClient(mWebChromeClient);
         LoginBean.DataBean data = App.getInstance().getLoginBean().getData();
-        String url = Constant.BASE_URL + "fans/getFansNet?id=" + data.getId() + "&token=" + data.getToken();
+        url = Constant.BASE_URL + "fans/getFansNet?id=" + data.getId() + "&token=" + data.getToken();
         webView.loadUrl(url);
     }
 
@@ -80,5 +84,10 @@ public class FansPointActivity extends BaseActivity {
     @OnClick(R.id.ivBack)
     void onClick() {
         finish();
+    }
+
+    @OnClick(R.id.ivRight)
+    void onRefreshClick() {
+        webView.loadUrl(url);
     }
 }

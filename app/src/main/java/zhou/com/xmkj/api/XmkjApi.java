@@ -9,6 +9,7 @@ import rx.Observable;
 import zhou.com.xmkj.base.Constant;
 import zhou.com.xmkj.bean.BaseBean;
 import zhou.com.xmkj.bean.FansListBean;
+import zhou.com.xmkj.bean.IntradeBean;
 import zhou.com.xmkj.bean.LoginBean;
 import zhou.com.xmkj.bean.MyFansBean;
 import zhou.com.xmkj.bean.UserInfoBean;
@@ -59,5 +60,9 @@ public class XmkjApi {
 
     public Observable<FansListBean> getFansList(int id,String token,int page,int pagesize,int type){
         return service.getFansList(id,token,page,pagesize,type);
+    }
+
+    public Observable<IntradeBean> getIntrade(int id, String token){
+        return service.getIntrade(id,token);
     }
 }

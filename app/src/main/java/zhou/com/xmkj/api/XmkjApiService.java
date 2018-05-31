@@ -6,6 +6,7 @@ import retrofit2.http.POST;
 import rx.Observable;
 import zhou.com.xmkj.bean.BaseBean;
 import zhou.com.xmkj.bean.FansListBean;
+import zhou.com.xmkj.bean.IntradeBean;
 import zhou.com.xmkj.bean.LoginBean;
 import zhou.com.xmkj.bean.MyFansBean;
 import zhou.com.xmkj.bean.UserInfoBean;
@@ -83,6 +84,7 @@ public interface XmkjApiService {
 
     /**
      * 获取粉丝列表
+     *
      * @param id
      * @param token
      * @param page
@@ -93,9 +95,21 @@ public interface XmkjApiService {
     @FormUrlEncoded
     @POST("fans/getFansList")
     Observable<FansListBean>
-    getFansList(@Field("id")int id,
-                @Field("token")String token,
-                @Field("page")int page,
-                @Field("pagesize")int pagesize,
+    getFansList(@Field("id") int id,
+                @Field("token") String token,
+                @Field("page") int page,
+                @Field("pagesize") int pagesize,
                 @Field("type") int type);
+
+    /**
+     * 获取流通交易数据
+     * @param id
+     * @param token
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("intrade/index")
+    Observable<IntradeBean>
+    getIntrade(@Field("id") int id,
+               @Field("token") String token);
 }

@@ -54,4 +54,11 @@
     <string name="fans_share">分享粉丝</string>
     <string name="fans_shared">共享粉丝</string>
     <string name="fans_Community">社群粉丝</string>
+    <string name="hot_request">热门问题</string>
+    <string name="input_your_request">请输入你要搜索的问题</string>
+    <string name="current">流通交易</string>
+    <string name="current_trading">流通转账</string>
+    <string name="Current_investment">流通投资</string>
+    <string name="Convert_trading">转换交易</string>
+    <string name="trading_floor">交易大厅</string>
 </resources>

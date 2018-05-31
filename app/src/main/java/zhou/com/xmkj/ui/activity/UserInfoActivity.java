@@ -69,8 +69,8 @@ public class UserInfoActivity extends BaseActivity {
                 break;
             case R.id.rlGender://性别
                 final List<String> mData = new ArrayList<>();
-                mData.add(String.valueOf(R.string.male));
-                mData.add(String.valueOf(R.string.female));
+                mData.add(getResources().getString(R.string.male));
+                mData.add(getResources().getString(R.string.female));
                 OptionsPickerView pickerView = new OptionsPickerView.Builder(this, new OptionsPickerView.OnOptionsSelectListener() {
                     @Override
                     public void onOptionsSelect(int options1, int options2, int options3, View v) {

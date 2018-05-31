@@ -9,6 +9,7 @@ import zhou.com.xmkj.base.BaseActivity;
  */
 
 public class LabelActivity extends BaseActivity {
+
     @Override
     public int getLayout() {
         return R.layout.activity_label;

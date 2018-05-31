@@ -52,10 +52,16 @@ public class MyFansActivity extends BaseActivity implements MyFansContract.View{
                 startToActivity(FansPointActivity.class);
                 break;
             case R.id.rlSumFans://总粉丝
+                startActivity(FansActivity.newIntent(this,getResources().getString(R.string.fans_sum),0));
+                break;
             case R.id.rlShardFans://分享粉丝
+                startActivity(FansActivity.newIntent(this,getResources().getString(R.string.fans_share),1));
+                break;
             case R.id.rlGongXiang://共享粉丝
+                startActivity(FansActivity.newIntent(this,getResources().getString(R.string.fans_shared),2));
+                break;
             case R.id.rlCommunityFans://社群粉丝
-                startToActivity(FansActivity.class);
+                startActivity(FansActivity.newIntent(this,getResources().getString(R.string.fans_Community),3));
                 break;
         }
     }

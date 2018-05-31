@@ -14,7 +14,7 @@
         android:roundIcon="@drawable/logo_2"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.SplashActivity">
+        <activity android:name=".ui.activity.WelcomActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,7 +41,8 @@
         <activity android:name=".ui.activity.help.OnlineServiceActivity" />
         <activity android:name=".ui.activity.TipActivity" />
         <activity android:name=".ui.activity.NicknameActivity" />
-        <activity android:name=".ui.activity.FansActivity"></activity>
+        <activity android:name=".ui.activity.FansActivity" />
+        <activity android:name=".ui.activity.CurrentActivity"></activity>
     </application>
 
 </manifest>

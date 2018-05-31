@@ -141,6 +141,36 @@ public class FansListBean {
             public void setCreatetime(String createtime) {
                 this.createtime = createtime;
             }
+
+            @Override
+            public String toString() {
+                return "ListBean{" +
+                        "username='" + username + '\'' +
+                        ", nickname='" + nickname + '\'' +
+                        ", avatar='" + avatar + '\'' +
+                        ", createtime='" + createtime + '\'' +
+                        '}';
+            }
         }
+
+        @Override
+        public String toString() {
+            return "DataBean{" +
+                    "page=" + page +
+                    ", pagesize='" + pagesize + '\'' +
+                    ", total=" + total +
+                    ", list=" + list +
+                    '}';
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "FansListBean{" +
+                "code=" + code +
+                ", msg='" + msg + '\'' +
+                ", time='" + time + '\'' +
+                ", data=" + data +
+                '}';
     }
 }

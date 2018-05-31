@@ -1,5 +1,6 @@
 package zhou.com.xmkj.ui.activity;
 
+import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -61,6 +62,12 @@ public class LoginActivity extends BaseActivity implements LoginContract.View{
                 mPresenter.login();
                 break;
             case R.id.ivLook:
+                if (etPsd.getInputType() == 129) {
+                    etPsd.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                } else {
+                    etPsd.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                }
+                etPsd.setSelection(etPsd.getText().toString().length());
                 break;
             case R.id.tvRegister:
                 startToActivity(RegisterActivity.class);

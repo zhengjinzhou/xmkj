@@ -16,6 +16,8 @@ import zhou.com.xmkj.base.BaseActivity;
 import zhou.com.xmkj.bean.BaseBean;
 import zhou.com.xmkj.ui.contract.RegisterContract;
 import zhou.com.xmkj.ui.presenter.RegisterPresenter;
+import zhou.com.xmkj.utils.CountDownTimerUtils;
+import zhou.com.xmkj.utils.PhoneUtil;
 import zhou.com.xmkj.utils.ToastUtils;
 
 /**
@@ -29,6 +31,7 @@ public class RegisterActivity extends BaseActivity implements RegisterContract.V
     @BindView(R.id.eEmail) EditText eEmail;
     @BindView(R.id.etPsd) EditText etPsd;
     @BindView(R.id.checkbox) CheckBox checkbox;
+    @BindView(R.id.tvCode) TextView tvCode;
     boolean isCheck = false;
 
     private RegisterPresenter mPrester = new RegisterPresenter(this);
@@ -87,6 +90,12 @@ public class RegisterActivity extends BaseActivity implements RegisterContract.V
                 mPrester.Register();
                 break;
             case R.id.tvCode:
+                if (!PhoneUtil.isPhoneNumber(etMobile.getText().toString().trim())){
+                    ToastUtils.showLongToast("请输入正确手机号码");
+                    return;
+                }
+                CountDownTimerUtils timerUtils = new CountDownTimerUtils(tvCode, 60000, 1000);
+                timerUtils.start();
                 mPrester.getCodeNum();
                 break;
         }

@@ -23,6 +23,7 @@ import zhou.com.xmkj.base.BaseFragment;
 import zhou.com.xmkj.bean.MyBaseBean;
 import zhou.com.xmkj.bean.UserInfoBean;
 import zhou.com.xmkj.ui.activity.CodeActivity;
+import zhou.com.xmkj.ui.activity.CurrentActivity;
 import zhou.com.xmkj.ui.activity.help.HelpActivity;
 import zhou.com.xmkj.ui.activity.MyFansActivity;
 import zhou.com.xmkj.ui.activity.RealNameAuthenticationActivity;
@@ -146,6 +147,7 @@ public class MyFragment extends BaseFragment implements UserInfoContract.View{
                 startToActivity(MyFansActivity.class);
                 break;
             case R.id.rlLife://流通交易
+                startToActivity(CurrentActivity.class);
                 break;
             case R.id.rlDynamic://VRCH结算
                 break;
