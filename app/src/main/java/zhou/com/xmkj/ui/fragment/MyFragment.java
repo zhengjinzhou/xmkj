@@ -24,18 +24,21 @@ import zhou.com.xmkj.bean.MyBaseBean;
 import zhou.com.xmkj.bean.UserInfoBean;
 import zhou.com.xmkj.ui.activity.CodeActivity;
 import zhou.com.xmkj.ui.activity.CurrentActivity;
+import zhou.com.xmkj.ui.activity.MyMessageActivity;
 import zhou.com.xmkj.ui.activity.help.HelpActivity;
 import zhou.com.xmkj.ui.activity.MyFansActivity;
 import zhou.com.xmkj.ui.activity.RealNameAuthenticationActivity;
 import zhou.com.xmkj.ui.activity.RegisterActivity;
 import zhou.com.xmkj.ui.activity.UserInfoActivity;
 import zhou.com.xmkj.ui.activity.help.HelpDocActivity;
+import zhou.com.xmkj.ui.adapter.MyBaseAdapter;
 import zhou.com.xmkj.ui.contract.UserInfoContract;
 import zhou.com.xmkj.ui.presenter.UserInfoPresenter;
 import zhou.com.xmkj.utils.ToastUtils;
 
 /**
- * Created by zhou on 2018/5/28.
+ * Created by zhou
+ * on 2018/5/28.
  * 我的
  */
 
@@ -50,6 +53,7 @@ public class MyFragment extends BaseFragment implements UserInfoContract.View{
 
     public static String TAG = "MyFragment-我的";
     private UserInfoPresenter mPresenter = new UserInfoPresenter(this);
+    private MyBaseAdapter adapter;
 
     @Override
     public int getLayout() {
@@ -66,24 +70,13 @@ public class MyFragment extends BaseFragment implements UserInfoContract.View{
     @Override
     public void initData() {
         List<MyBaseBean> data = new ArrayList<>();
-        data.add(new MyBaseBean(HelpDocActivity.class,getString(R.string.my_news),R.drawable.icon_11));
+        data.add(new MyBaseBean(MyMessageActivity.class,getString(R.string.my_news),R.drawable.icon_11));
         data.add(new MyBaseBean(RealNameAuthenticationActivity.class,getString(R.string.txt_real_name_authentication),R.drawable.icon_47));
         data.add(new MyBaseBean(CodeActivity.class,getString(R.string.txt_my_code),R.drawable.icon_10));
         data.add(new MyBaseBean(RegisterActivity.class,getString(R.string.txt_register),R.drawable.icon_9));
         data.add(new MyBaseBean(HelpActivity.class,getString(R.string.txt_help_center),R.drawable.icon_7));
-        BaseCommonAdapter adapter = new BaseCommonAdapter<MyBaseBean>(getContext(), R.layout.recycle_my, data) {
-            @Override
-            public void convert(ViewHolder holder, final MyBaseBean baseBean, int position) {
-                holder.setText(R.id.tv_name,baseBean.getName());
-                holder.setImageResource(R.id.iv_icon,baseBean.getIcon());
-                holder.setOnClickListener(R.id.layout, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        startToActivity(baseBean.getaClass());
-                    }
-                });
-            }
-        };
+        adapter = new MyBaseAdapter(mContext,R.layout.recycle_my,data);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
 

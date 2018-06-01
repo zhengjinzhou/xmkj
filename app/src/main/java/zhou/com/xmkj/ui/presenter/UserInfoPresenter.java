@@ -9,6 +9,7 @@ import zhou.com.xmkj.api.XmkjApi;
 import zhou.com.xmkj.base.RxPresenter;
 import zhou.com.xmkj.bean.UserInfoBean;
 import zhou.com.xmkj.ui.activity.LoginActivity;
+import zhou.com.xmkj.ui.activity.MyMessageActivity;
 import zhou.com.xmkj.ui.contract.UserInfoContract;
 import zhou.com.xmkj.ui.fragment.MyFragment;
 import zhou.com.xmkj.utils.MD5;
@@ -19,6 +20,7 @@ import zhou.com.xmkj.utils.MD5;
 
 public class UserInfoPresenter extends RxPresenter<UserInfoContract.View> implements UserInfoContract.Presenter<UserInfoContract.View> {
 
+    MyMessageActivity myMessageActivity;
     MyFragment myFragment;
     XmkjApi xmkjApi;
 
@@ -27,6 +29,10 @@ public class UserInfoPresenter extends RxPresenter<UserInfoContract.View> implem
         xmkjApi = new XmkjApi(new OkHttpClient());
     }
 
+    public UserInfoPresenter(MyMessageActivity myMessageActivity){
+        this.myMessageActivity = myMessageActivity;
+        xmkjApi = new XmkjApi(new OkHttpClient());
+    }
 
     @Override
     public void getUserInfo() {

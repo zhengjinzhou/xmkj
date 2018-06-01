@@ -42,7 +42,8 @@
         <activity android:name=".ui.activity.TipActivity" />
         <activity android:name=".ui.activity.NicknameActivity" />
         <activity android:name=".ui.activity.FansActivity" />
-        <activity android:name=".ui.activity.CurrentActivity"></activity>
+        <activity android:name=".ui.activity.CurrentActivity" />
+        <activity android:name=".ui.activity.MyMessageActivity"></activity>
     </application>
 
 </manifest>

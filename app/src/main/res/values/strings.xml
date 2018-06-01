@@ -61,4 +61,6 @@
     <string name="Current_investment">流通投资</string>
     <string name="Convert_trading">转换交易</string>
     <string name="trading_floor">交易大厅</string>
+    <string name="my_message">我的信息</string>
+    <string name="zhifu_account">支付账户</string>
 </resources>

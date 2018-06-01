@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/iv_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:layout_centerVertical="true"
         android:layout_gravity="center"
         android:paddingBottom="@dimen/dp_size_16"
@@ -18,22 +18,24 @@
         android:paddingTop="@dimen/dp_size_16" />
 
     <TextView
+        android:layout_centerVertical="true"
         android:id="@+id/tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginLeft="@dimen/dp_size_8"
         android:layout_toRightOf="@+id/iv_icon"
-        android:padding="@dimen/dp_size_16"
+        android:padding="@dimen/dp_size_8"
         android:textColor="@color/common_text_color" />
 
     <TextView
+        android:layout_centerVertical="true"
         android:id="@+id/tvContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_alignParentRight="true"
-        android:padding="@dimen/dp_size_16"
+        android:padding="@dimen/dp_size_8"
         android:textColor="@color/common_text_color" />
 
     <ImageView
@@ -41,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:padding="@dimen/dp_size_16"
+        android:padding="@dimen/dp_size_8"
         android:src="@drawable/icon_2" />
 
     <View
