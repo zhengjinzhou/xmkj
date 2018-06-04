@@ -45,8 +45,8 @@ public class MyMessageActivity extends BaseActivity implements UserInfoContract.
         dataMessage = new ArrayList<>();
         dataAccount = new ArrayList<>();
 
-        adapterMessage = new MyBaseMessageAdapter(this,R.layout.recycle_my_message, dataMessage);
-        adapterAccount = new MyBaseAccountAdapter(this,R.layout.recycle_my_message, dataAccount);
+        adapterMessage = new MyBaseMessageAdapter(this,R.layout.recycle_my, dataMessage);
+        adapterAccount = new MyBaseAccountAdapter(this,R.layout.recycle_my, dataAccount);
 
         reMessage.setLayoutManager(new LinearLayoutManager(this));
         reMessage.setAdapter(adapterMessage);
@@ -79,11 +79,9 @@ public class MyMessageActivity extends BaseActivity implements UserInfoContract.
                 dataAccount.add(new MyBaseAccountBean( userInfoBeanData.getWallet().get(i).getIcon(), userInfoBeanData.getWallet().get(i).getName(), userInfoBeanData.getWallet().get(i).getMoney()));
             }
 
-            adapterMessage.add(dataMessage);
-            adapterMessage.notifyDataSetChanged();
+            adapterMessage.addDatas(dataMessage);
+            adapterAccount.addDatas(dataAccount);
 
-            adapterAccount.add(dataAccount);
-            adapterAccount.notifyDataSetChanged();
         }
     }
 

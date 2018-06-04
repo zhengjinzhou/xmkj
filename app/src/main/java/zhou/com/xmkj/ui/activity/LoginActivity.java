@@ -83,6 +83,7 @@ public class LoginActivity extends BaseActivity implements LoginContract.View{
         if (loginBean.getCode()==200){
             App.getInstance().setLoginBean(loginBean);
             startToActivity(MainActivity.class);
+            finish();
         }else {
             ToastUtils.showLongToast(loginBean.getMsg());
         }

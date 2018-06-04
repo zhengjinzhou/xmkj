@@ -1,4 +1,4 @@
-package zhou.com.xmkj.ui.activity;
+package zhou.com.xmkj.ui.activity.personmessage;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

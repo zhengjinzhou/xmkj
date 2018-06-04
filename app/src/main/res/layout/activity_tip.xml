@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/common_bg"
-    tools:context="zhou.com.xmkj.ui.activity.TipActivity">
+    tools:context="zhou.com.xmkj.ui.activity.personmessage.TipActivity">
 
     <include layout="@layout/layout_header" />
 

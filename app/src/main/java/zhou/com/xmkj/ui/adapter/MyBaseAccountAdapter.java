@@ -28,9 +28,15 @@ public class MyBaseAccountAdapter extends BaseCommonAdapter<MyBaseAccountBean> {
 
     @Override
     public void convert(ViewHolder holder, MyBaseAccountBean myBaseMessageBean, int position) {
+        holder.setOnClickListener(R.id.layout, new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         holder.getView(R.id.iv).setVisibility(View.GONE);
         holder.setText(R.id.tv_name,myBaseMessageBean.getName());
-        holder.setText(R.id.tvContent,myBaseMessageBean.getName());
+        holder.setText(R.id.tvContent,myBaseMessageBean.getContent());
         ImageView iv_icon = holder.getView(R.id.iv_icon);
         Glide.with(mContext).load(myBaseMessageBean.getIcon()).into(iv_icon);
     }

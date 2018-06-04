@@ -1,8 +1,5 @@
 package zhou.com.xmkj.ui.activity;
 
-import android.app.Activity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
@@ -16,11 +13,9 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
 import zhou.com.xmkj.R;
-import zhou.com.xmkj.adapter.base.BaseCommonAdapter;
-import zhou.com.xmkj.adapter.base.ViewHolder;
 import zhou.com.xmkj.base.App;
 import zhou.com.xmkj.base.BaseActivity;
-import zhou.com.xmkj.bean.MyBaseBean;
+import zhou.com.xmkj.ui.activity.personmessage.TipActivity;
 
 /**
  * Created by zhou on 2018/5/28.

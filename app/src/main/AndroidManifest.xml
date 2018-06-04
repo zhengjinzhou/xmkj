@@ -39,11 +39,18 @@
         <activity android:name=".ui.activity.help.HelpDocActivity" />
         <activity android:name=".ui.activity.help.WorkOrderActivity" />
         <activity android:name=".ui.activity.help.OnlineServiceActivity" />
-        <activity android:name=".ui.activity.TipActivity" />
+        <activity android:name=".ui.activity.personmessage.TipActivity" />
         <activity android:name=".ui.activity.NicknameActivity" />
         <activity android:name=".ui.activity.FansActivity" />
         <activity android:name=".ui.activity.CurrentActivity" />
-        <activity android:name=".ui.activity.MyMessageActivity"></activity>
+        <activity android:name=".ui.activity.MyMessageActivity" />
+        <activity android:name=".ui.activity.setting.SettingActivity" />
+        <activity android:name=".ui.activity.setting.SetPsdActivity" />
+        <activity android:name=".ui.activity.setting.SetZhiActivity" />
+        <activity android:name=".ui.activity.setting.SetLanguageActivity" />
+        <activity android:name=".ui.activity.setting.SetAboutActivity" />
+        <activity android:name=".ui.activity.setting.SetEmailActivity" />
+        <activity android:name=".ui.activity.setting.SetPhoneActivity"></activity>
     </application>
 
 </manifest>

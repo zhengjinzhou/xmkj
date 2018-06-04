@@ -65,4 +65,9 @@ public class XmkjApi {
     public Observable<IntradeBean> getIntrade(int id, String token){
         return service.getIntrade(id,token);
     }
+
+    public Observable<BaseBean>
+    getuserCertificate(String id,String token,String realname,String idcard,String idcard_front,String idcard_back){
+        return service.getuserCertificate(id,token,realname,idcard,idcard_front,idcard_back);
+    }
 }

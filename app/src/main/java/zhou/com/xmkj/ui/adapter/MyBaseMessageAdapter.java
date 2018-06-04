@@ -26,6 +26,12 @@ public class MyBaseMessageAdapter extends BaseCommonAdapter<MyBaseMessageBean> {
 
     @Override
     public void convert(ViewHolder holder, MyBaseMessageBean myBaseMessageBean, int position) {
+        holder.setOnClickListener(R.id.layout, new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         holder.getView(R.id.iv).setVisibility(View.GONE);
         holder.setImageResource(R.id.iv_icon,myBaseMessageBean.getIcon());
         holder.setText(R.id.tv_name,myBaseMessageBean.getName());

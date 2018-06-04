@@ -63,4 +63,5 @@
     <string name="trading_floor">交易大厅</string>
     <string name="my_message">我的信息</string>
     <string name="zhifu_account">支付账户</string>
+    <string name="real_name_cant_empty">真实姓名不能为空！</string>
 </resources>

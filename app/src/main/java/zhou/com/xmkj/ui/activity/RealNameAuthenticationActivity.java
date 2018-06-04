@@ -22,6 +22,8 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -42,13 +44,17 @@ import butterknife.OnClick;
 import zhou.com.xmkj.R;
 import zhou.com.xmkj.base.App;
 import zhou.com.xmkj.base.BaseActivity;
+import zhou.com.xmkj.bean.BaseBean;
+import zhou.com.xmkj.ui.contract.RealNameContract;
+import zhou.com.xmkj.ui.presenter.RealNamePresenter;
 import zhou.com.xmkj.utils.ToastUtils;
 
 /**
  * 实名认证
  */
-public class RealNameAuthenticationActivity extends BaseActivity {
+public class RealNameAuthenticationActivity extends BaseActivity implements RealNameContract.View{
 
+    private static String TAG = "RealNameAuthenticationActivity";
     @BindView(R.id.tvHead) TextView tvHead;
     @BindView(R.id.tvAccount) TextView tvAccount;
     @BindView(R.id.etUsername) EditText etUsername;
@@ -61,8 +67,8 @@ public class RealNameAuthenticationActivity extends BaseActivity {
     public static final int CROP_PHOTO = 2;
     private static final int CHOOSE_PHOTO = 3;//打开相册
     private Uri imageUri;
-
     public static File tempFile;
+    private RealNamePresenter mPresenter = new RealNamePresenter(this);
 
     @Override
     public int getLayout() {
@@ -77,11 +83,12 @@ public class RealNameAuthenticationActivity extends BaseActivity {
     @Override
     public void configView() {
         tvHead.setText(R.string.txt_real_name_authentication);
-        tvAccount.setText(App.getInstance().getUserInfoBean().getData().getUsername());
-
+        if (App.getInstance().getUserInfoBean() != null)
+            tvAccount.setText(App.getInstance().getUserInfoBean().getData().getUsername());
+        mPresenter.attachView(this);
     }
 
-    @OnClick({R.id.ivBack, R.id.ivZhengMian, R.id.ivFanMian})
+    @OnClick({R.id.ivBack, R.id.ivZhengMian, R.id.ivFanMian, R.id.btSubmit})
     void onClick(View view) {
         switch (view.getId()) {
             case R.id.ivBack:
@@ -92,6 +99,12 @@ public class RealNameAuthenticationActivity extends BaseActivity {
                 break;
             case R.id.ivFanMian:
                 showDialogCustom(1);
+                break;
+            case R.id.btSubmit:
+                String username = etUsername.getText().toString().trim();
+                String password = etNumber.getText().toString().trim();
+
+                mPresenter.userCertificate();
                 break;
         }
     }
@@ -117,7 +130,8 @@ public class RealNameAuthenticationActivity extends BaseActivity {
                     }
                 } else if (which == 1) {
                     //拍照
-                    openCamera();
+                    ToastUtils.showLongToast("拍张功能待续。");
+                    //openCamera();
                 }
             }
         });
@@ -169,7 +183,7 @@ public class RealNameAuthenticationActivity extends BaseActivity {
     }
 
     private void setUriPhoto(Bitmap bitmap) {
-        switch (index){
+        switch (index) {
             case 0:
                 ivZhengMian.setImageBitmap(bitmap);
                 break;
@@ -209,10 +223,11 @@ public class RealNameAuthenticationActivity extends BaseActivity {
 
     /**
      * 选择相册---显示照片
+     *
      * @param imagePath
      */
     private void setPhoto(String imagePath) {
-        switch (index){
+        switch (index) {
             case 0:
                 Glide.with(this).load(imagePath).into(ivZhengMian);
                 break;
@@ -221,8 +236,10 @@ public class RealNameAuthenticationActivity extends BaseActivity {
                 break;
         }
     }
+
     /**
      * 查找照片
+     *
      * @param uri
      * @param selection
      * @return
@@ -284,5 +301,57 @@ public class RealNameAuthenticationActivity extends BaseActivity {
     public static boolean hasSdcard() {
         return Environment.getExternalStorageState().equals(
                 Environment.MEDIA_MOUNTED);
+    }
+
+    @Override
+    public String setId() {
+        return App.getInstance().getLoginBean().getData().getId()+"";
+    }
+
+    @Override
+    public String setToken() {
+        return App.getInstance().getLoginBean().getData().getToken();
+    }
+
+    @Override
+    public String setRealname() {
+        return null;
+    }
+
+    @Override
+    public String setIdCard() {
+        return null;
+    }
+
+    @Override
+    public String setIdcardFront() {
+        return null;
+    }
+
+    @Override
+    public String setIdcardBack() {
+        return null;
+    }
+
+    @Override
+    public void userCertificateSuccess(BaseBean baseBean) {
+        Log.d(TAG, "userCertificateSuccess: "+baseBean.toString());
+    }
+
+    @Override
+    public void showError() {
+
+    }
+
+    @Override
+    public void complete() {
+
+    }
+
+    @Override
+    public void onDestroy() {
+        if (mPresenter != null)
+            mPresenter.detachView();
+        super.onDestroy();
     }
 }

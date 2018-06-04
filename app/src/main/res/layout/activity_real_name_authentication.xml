@@ -10,7 +10,7 @@
 
     <include layout="@layout/layout_header" />
 
-    <android.support.v4.widget.NestedScrollView
+    <zhou.com.xmkj.view.ReboundScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -110,6 +110,8 @@
                     android:textColor="@color/common_text_color" />
 
                 <EditText
+                    android:inputType="number"
+                    android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
                     android:id="@+id/etNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -181,10 +183,10 @@
             </RelativeLayout>
 
             <Button
-                android:id="@+id/btLogin"
+                android:id="@+id/btSubmit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dp_size_16"
+                android:layout_marginBottom="@dimen/dp_size_30"
                 android:layout_marginLeft="@dimen/dp_size_30"
                 android:layout_marginRight="@dimen/dp_size_30"
                 android:layout_marginTop="?attr/actionBarSize"
@@ -193,5 +195,5 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/sp_size_16" />
         </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+    </zhou.com.xmkj.view.ReboundScrollView>
 </LinearLayout>

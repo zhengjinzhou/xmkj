@@ -16,8 +16,6 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
 import zhou.com.xmkj.R;
-import zhou.com.xmkj.adapter.base.BaseCommonAdapter;
-import zhou.com.xmkj.adapter.base.ViewHolder;
 import zhou.com.xmkj.base.App;
 import zhou.com.xmkj.base.BaseFragment;
 import zhou.com.xmkj.bean.MyBaseBean;
@@ -25,12 +23,12 @@ import zhou.com.xmkj.bean.UserInfoBean;
 import zhou.com.xmkj.ui.activity.CodeActivity;
 import zhou.com.xmkj.ui.activity.CurrentActivity;
 import zhou.com.xmkj.ui.activity.MyMessageActivity;
+import zhou.com.xmkj.ui.activity.setting.SettingActivity;
 import zhou.com.xmkj.ui.activity.help.HelpActivity;
 import zhou.com.xmkj.ui.activity.MyFansActivity;
 import zhou.com.xmkj.ui.activity.RealNameAuthenticationActivity;
 import zhou.com.xmkj.ui.activity.RegisterActivity;
 import zhou.com.xmkj.ui.activity.UserInfoActivity;
-import zhou.com.xmkj.ui.activity.help.HelpDocActivity;
 import zhou.com.xmkj.ui.adapter.MyBaseAdapter;
 import zhou.com.xmkj.ui.contract.UserInfoContract;
 import zhou.com.xmkj.ui.presenter.UserInfoPresenter;
@@ -50,6 +48,7 @@ public class MyFragment extends BaseFragment implements UserInfoContract.View{
     @BindView(R.id.CircleImageView) CircleImageView circleImageView;
     @BindView(R.id.tvAccount) TextView tvAccount;
     @BindView(R.id.tvName) TextView tvName;
+    @BindView(R.id.ivRight) ImageView ivRight;
 
     public static String TAG = "MyFragment-我的";
     private UserInfoPresenter mPresenter = new UserInfoPresenter(this);
@@ -86,6 +85,7 @@ public class MyFragment extends BaseFragment implements UserInfoContract.View{
     public void configViews() {
         ivBack.setVisibility(View.GONE);
         tvHead.setText(R.string.txt_my_fragment);
+        ivRight.setImageResource(R.drawable.header_1);
         mPresenter.getUserInfo();
     }
 
@@ -130,7 +130,7 @@ public class MyFragment extends BaseFragment implements UserInfoContract.View{
         super.onDestroy();
     }
 
-    @OnClick({R.id.rlMyNews,R.id.rlMessage,R.id.rlLife,R.id.rlDynamic,R.id.rlMy})
+    @OnClick({R.id.rlMyNews,R.id.rlMessage,R.id.rlLife,R.id.rlDynamic,R.id.rlMy,R.id.ivRight})
     void onClick(View view){
         switch (view.getId()){
             case R.id.rlMyNews://我的头像处-个人信息
@@ -145,6 +145,9 @@ public class MyFragment extends BaseFragment implements UserInfoContract.View{
             case R.id.rlDynamic://VRCH结算
                 break;
             case R.id.rlMy://会员充值
+                break;
+            case R.id.ivRight:
+                startToActivity(SettingActivity.class);
                 break;
         }
     }

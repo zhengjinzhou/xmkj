@@ -112,4 +112,14 @@ public interface XmkjApiService {
     Observable<IntradeBean>
     getIntrade(@Field("id") int id,
                @Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("user/userCertificate")
+    Observable<BaseBean>
+    getuserCertificate(@Field("id") String id,
+                       @Field("token") String token,
+                       @Field("realname") String page,
+                       @Field("idcard") String idcard,
+                       @Field("idcard_front") String idcard_front,
+                       @Field("idcard_back") String idcard_back);
 }
