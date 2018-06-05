@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.TextView;
 
 import butterknife.BindView;
@@ -39,10 +41,25 @@ public class FansPointActivity extends BaseActivity {
         webView.getSettings().setSupportZoom(true);
         webView.getSettings().setBuiltInZoomControls(true);
         webView.getSettings().setDisplayZoomControls(false);
-        webView.setWebChromeClient(mWebChromeClient);
+
+        webView.getSettings().setAppCacheEnabled(true);
+        webView.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+        //设置 缓存模式
+        webView.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);
+        // 开启 DOM storage API 功能
+        webView.getSettings().setDomStorageEnabled(true);
+
         LoginBean.DataBean data = App.getInstance().getLoginBean().getData();
         url = Constant.BASE_URL + "fans/getFansNet?id=" + data.getId() + "&token=" + data.getToken();
         webView.loadUrl(url);
+        webView.setWebViewClient(new WebViewClient() {
+            //覆盖shouldOverrideUrlLoading 方法
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
+                return true;
+            }
+        });
     }
 
     @Override
@@ -52,26 +69,6 @@ public class FansPointActivity extends BaseActivity {
         tvRight.setText(R.string.txt_refresh);
     }
 
-
-    //ChromeClient   监听网页加载
-    WebChromeClient mWebChromeClient = new WebChromeClient() {
-        @Override
-        public void onProgressChanged(WebView view, int newProgress) {
-            super.onProgressChanged(view, newProgress);
-        }
-
-        @Override
-        public boolean onJsAlert(WebView view, String url, String message, final JsResult result) {
-            result.confirm();
-            return true;
-        }
-
-        @Override
-        public void onReceivedTitle(WebView view, String title) {
-            super.onReceivedTitle(view, title);
-        }
-
-    };
 
     @Override
     protected void onDestroy() {

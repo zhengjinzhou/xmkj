@@ -71,6 +71,7 @@ public class MyFragment extends BaseFragment implements UserInfoContract.View{
         List<MyBaseBean> data = new ArrayList<>();
         data.add(new MyBaseBean(MyMessageActivity.class,getString(R.string.my_news),R.drawable.icon_11));
         data.add(new MyBaseBean(RealNameAuthenticationActivity.class,getString(R.string.txt_real_name_authentication),R.drawable.icon_47));
+        data.add(new MyBaseBean(RealNameAuthenticationActivity.class,"账户信息",R.drawable.ziliao));
         data.add(new MyBaseBean(CodeActivity.class,getString(R.string.txt_my_code),R.drawable.icon_10));
         data.add(new MyBaseBean(RegisterActivity.class,getString(R.string.txt_register),R.drawable.icon_9));
         data.add(new MyBaseBean(HelpActivity.class,getString(R.string.txt_help_center),R.drawable.icon_7));

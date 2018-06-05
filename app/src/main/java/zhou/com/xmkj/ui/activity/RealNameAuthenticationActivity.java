@@ -32,12 +32,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.qiniu.android.http.ResponseInfo;
+import com.qiniu.android.storage.UpCompletionHandler;
+import com.qiniu.android.storage.UploadManager;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -47,20 +56,28 @@ import zhou.com.xmkj.base.BaseActivity;
 import zhou.com.xmkj.bean.BaseBean;
 import zhou.com.xmkj.ui.contract.RealNameContract;
 import zhou.com.xmkj.ui.presenter.RealNamePresenter;
+import zhou.com.xmkj.utils.IDCardUtil;
+import zhou.com.xmkj.utils.Ranst;
 import zhou.com.xmkj.utils.ToastUtils;
 
 /**
  * 实名认证
  */
-public class RealNameAuthenticationActivity extends BaseActivity implements RealNameContract.View{
+public class RealNameAuthenticationActivity extends BaseActivity implements RealNameContract.View {
 
     private static String TAG = "RealNameAuthenticationActivity";
-    @BindView(R.id.tvHead) TextView tvHead;
-    @BindView(R.id.tvAccount) TextView tvAccount;
-    @BindView(R.id.etUsername) EditText etUsername;
-    @BindView(R.id.etNumber) EditText etNumber;
-    @BindView(R.id.ivZhengMian) ImageView ivZhengMian;
-    @BindView(R.id.ivFanMian) ImageView ivFanMian;
+    @BindView(R.id.tvHead)
+    TextView tvHead;
+    @BindView(R.id.tvAccount)
+    TextView tvAccount;
+    @BindView(R.id.etUsername)
+    EditText etUsername;
+    @BindView(R.id.etNumber)
+    EditText etNumber;
+    @BindView(R.id.ivZhengMian)
+    ImageView ivZhengMian;
+    @BindView(R.id.ivFanMian)
+    ImageView ivFanMian;
     private String[] mCustomItems = new String[]{"相册", "拍照"};
     private int index = 0;
     public static final int PHOTO_REQUEST_CAREMA = 1;// 拍照
@@ -69,6 +86,7 @@ public class RealNameAuthenticationActivity extends BaseActivity implements Real
     private Uri imageUri;
     public static File tempFile;
     private RealNamePresenter mPresenter = new RealNamePresenter(this);
+    private List<String> imageURL = new ArrayList<>();
 
     @Override
     public int getLayout() {
@@ -102,8 +120,32 @@ public class RealNameAuthenticationActivity extends BaseActivity implements Real
                 break;
             case R.id.btSubmit:
                 String username = etUsername.getText().toString().trim();
-                String password = etNumber.getText().toString().trim();
-
+                String number = etNumber.getText().toString().trim();
+                if (TextUtils.isEmpty(username)) {
+                    ToastUtils.showLongToast("真实姓名不能为空");
+                    return;
+                }
+                if (TextUtils.isEmpty(number)) {
+                    ToastUtils.showLongToast("身份证不能为空");
+                    return;
+                }
+                try {
+                    String s = IDCardUtil.IDCardValidate(number);
+                    if (s.length() > 0) {
+                        ToastUtils.showLongToast(s);
+                        return;
+                    }
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                if (imageURL.size() == 0) {
+                    ToastUtils.showLongToast("请上传完整身份证正反面！");
+                    return;
+                } else if (imageURL.size() == 1) {
+                    ToastUtils.showLongToast("请上传完整身份证正反面！");
+                    return;
+                }
+                dialog.show();
                 mPresenter.userCertificate();
                 break;
         }
@@ -229,9 +271,11 @@ public class RealNameAuthenticationActivity extends BaseActivity implements Real
     private void setPhoto(String imagePath) {
         switch (index) {
             case 0:
+                imageURL.add(imagePath);
                 Glide.with(this).load(imagePath).into(ivZhengMian);
                 break;
             case 1:
+                imageURL.add(imagePath);
                 Glide.with(this).load(imagePath).into(ivFanMian);
                 break;
         }
@@ -305,7 +349,7 @@ public class RealNameAuthenticationActivity extends BaseActivity implements Real
 
     @Override
     public String setId() {
-        return App.getInstance().getLoginBean().getData().getId()+"";
+        return App.getInstance().getLoginBean().getData().getId() + "";
     }
 
     @Override
@@ -315,37 +359,38 @@ public class RealNameAuthenticationActivity extends BaseActivity implements Real
 
     @Override
     public String setRealname() {
-        return null;
+        return etUsername.getText().toString().trim();
     }
 
     @Override
     public String setIdCard() {
-        return null;
+        return etNumber.getText().toString().trim();
     }
 
     @Override
     public String setIdcardFront() {
-        return null;
+        return imageURL.get(0);
     }
 
     @Override
     public String setIdcardBack() {
-        return null;
+        return imageURL.get(1);
     }
 
     @Override
     public void userCertificateSuccess(BaseBean baseBean) {
-        Log.d(TAG, "userCertificateSuccess: "+baseBean.toString());
+        Log.d(TAG, "userCertificateSuccess: " + baseBean.toString());
+        ToastUtils.showLongToast(baseBean.getMsg());
     }
 
     @Override
     public void showError() {
-
+        dialog.dismiss();
     }
 
     @Override
     public void complete() {
-
+        dialog.dismiss();
     }
 
     @Override
