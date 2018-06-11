@@ -11,7 +11,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -48,4 +48,8 @@ dependencies {
     compile 'com.contrarywind:Android-PickerView:3.2.6'
 
     compile 'com.qiniu:qiniu-android-sdk:7.3.12'
+    compile 'com.kyleduo.switchbutton:library:2.0.0'
+
+    //android图表
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
 }

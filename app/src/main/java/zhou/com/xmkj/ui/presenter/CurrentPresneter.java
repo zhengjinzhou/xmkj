@@ -7,12 +7,9 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import zhou.com.xmkj.api.XmkjApi;
 import zhou.com.xmkj.base.RxPresenter;
-import zhou.com.xmkj.bean.FansListBean;
 import zhou.com.xmkj.bean.IntradeBean;
-import zhou.com.xmkj.ui.activity.CurrentActivity;
-import zhou.com.xmkj.ui.activity.FansActivity;
+import zhou.com.xmkj.ui.activity.current.CurrentActivity;
 import zhou.com.xmkj.ui.contract.CurrentContract;
-import zhou.com.xmkj.ui.contract.FansContract;
 
 /**
  * Created by zhou

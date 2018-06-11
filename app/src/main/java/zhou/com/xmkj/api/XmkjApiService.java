@@ -66,6 +66,34 @@ public interface XmkjApiService {
     getCodeNum(@Field("mobile") String mobile);
 
     /**
+     * 验证验证码
+     * @param mobile
+     * @param code
+     * @param type
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("common/checkVerifyCode")
+    Observable<BaseBean>
+    checkVerifyCode(@Field("mobile") String mobile,
+                    @Field("code") String code,
+                    @Field("type") String type);
+
+    /**
+     * 修改密码-找回密码
+     * @param mobile
+     * @param password
+     * @param aspassword
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("login/setNewPassword")
+    Observable<BaseBean> setNewPassword(
+        @Field("mobile") String mobile,
+        @Field("password") String password,
+        @Field("aspassword") String aspassword);
+
+    /**
      * 注册
      *
      * @param mobile
@@ -122,4 +150,6 @@ public interface XmkjApiService {
                        @Field("idcard") String idcard,
                        @Field("idcard_front") String idcard_front,
                        @Field("idcard_back") String idcard_back);
+
+
 }

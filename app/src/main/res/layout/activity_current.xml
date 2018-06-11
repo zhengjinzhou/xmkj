@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/common_bg"
     android:orientation="vertical"
-    tools:context="zhou.com.xmkj.ui.activity.CurrentActivity">
+    tools:context="zhou.com.xmkj.ui.activity.current.CurrentActivity">
 
     <include layout="@layout/layout_header" />
 
@@ -128,7 +128,52 @@
                 android:layout_marginTop="@dimen/dp_size_8"
                 android:background="@color/white" />
 
-            
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_size_16"
+                android:background="@color/white"
+                android:padding="@dimen/dp_size_16"
+                android:text="收益概况图待续" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_size_16"
+                android:background="@color/white"
+                android:padding="@dimen/dp_size_16"
+                android:text="加速明细" />
+
+            <RelativeLayout
+                android:id="@+id/rlMoney"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <ImageView
+                    android:id="@id/iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/icon_5" />
+
+                <TextView
+                    android:id="@+id/tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv"
+                    android:layout_marginTop="@dimen/dp_size_5"
+                    android:gravity="center"
+                    android:text="待加速" />
+
+                <TextView
+                    android:id="@+id/tvMoney"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv"
+                    android:layout_marginTop="@dimen/dp_size_5"
+                    android:gravity="center" />
+            </RelativeLayout>
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 </LinearLayout>

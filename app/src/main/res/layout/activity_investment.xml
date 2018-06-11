@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg"
+    android:orientation="vertical"
+    tools:context="zhou.com.xmkj.ui.activity.current.TransferActivity">
+
+    <include layout="@layout/layout_header" />
+
+
+    <RelativeLayout
+        android:layout_marginTop="@dimen/dp_size_8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/touch_bg">
+
+        <TextView
+            android:id="@+id/tvTrade"
+            android:text="接点人"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_size_16"
+            android:textColor="@color/common_text_color" />
+        <EditText
+            android:textSize="@dimen/sp_size_15"
+            android:hint="请输入接点人"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/tvTrade"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="@dimen/dp_size_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/touch_bg">
+
+        <TextView
+            android:text="选择市场"
+            android:layout_centerVertical="true"
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_size_16"
+            android:textColor="@color/common_text_color" />
+
+        <ImageView
+            android:id="@+id/iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="@dimen/dp_size_16"
+            android:src="@drawable/icon_2" />
+    </RelativeLayout>
+
+
+    <Button
+        android:id="@+id/btSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_size_50"
+        android:layout_marginRight="@dimen/dp_size_50"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:background="@drawable/bg_login"
+        android:text="下一步"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_size_16"
+        />
+</LinearLayout>

@@ -1,4 +1,4 @@
-package zhou.com.xmkj.ui.activity;
+package zhou.com.xmkj.ui.activity.current;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +26,7 @@ import zhou.com.xmkj.base.App;
 import zhou.com.xmkj.base.BaseActivity;
 import zhou.com.xmkj.bean.FansListBean;
 import zhou.com.xmkj.bean.IntradeBean;
+import zhou.com.xmkj.ui.activity.SpeedActivity;
 import zhou.com.xmkj.ui.contract.CurrentContract;
 import zhou.com.xmkj.ui.presenter.CurrentPresneter;
 import zhou.com.xmkj.utils.ToastUtils;
@@ -33,6 +36,7 @@ public class CurrentActivity extends BaseActivity implements CurrentContract.Vie
     private static final String TAG = "CurrentActivity-流通交易";
     private CurrentPresneter mPresenter = new CurrentPresneter(this);
     @BindView(R.id.tvHead) TextView tvHead;
+    @BindView(R.id.tvMoney) TextView tvMoney;
     @BindView(R.id.recyclerView) RecyclerView recyclerView;
     private BaseCommonAdapter<IntradeBean.DataBean.WalletBean> mAdapter;
 
@@ -65,11 +69,15 @@ public class CurrentActivity extends BaseActivity implements CurrentContract.Vie
 
     @Override
     public void getIntradeSuccess(IntradeBean intradeBean) {
-        Log.d(TAG, "getIntradeSuccess: " + intradeBean.toString());
-        List<IntradeBean.DataBean.WalletBean> data = intradeBean.getData().getWallet();
-        Log.d(TAG, "getIntradeSuccess: " + data.toString());
-        mAdapter.add(data);
-        mAdapter.notifyDataSetChanged();
+        if (intradeBean.getCode()==200){
+            Log.d(TAG, "getIntradeSuccess: " + intradeBean.toString());
+            tvMoney.setText("￥"+intradeBean.getData().getDtmoney());
+            List<IntradeBean.DataBean.WalletBean> data = intradeBean.getData().getWallet();
+            Log.d(TAG, "getIntradeSuccess: " + data.toString());
+
+            mAdapter.add(data);
+            mAdapter.notifyDataSetChanged();
+        }
     }
 
     @Override
@@ -99,10 +107,25 @@ public class CurrentActivity extends BaseActivity implements CurrentContract.Vie
         super.onDestroy();
     }
 
-    @OnClick({R.id.ivBack}) void onClick(View view){
+    @OnClick({R.id.ivBack,R.id.rlMoney,R.id.rlDynamic,R.id.rlMy}) void onClick(View view){
         switch (view.getId()){
+            case R.id.rlMessage://流通转账
+                startToActivity(TransferActivity.class);
+                break;
+            case R.id.rlLife://流通投资
+                startToActivity(InvestmentActivity.class);
+                break;
+            case R.id.rlDynamic://转换交易
+                startToActivity(TradingActivity.class);
+                break;
+            case R.id.rlMy://交易大厅
+                startToActivity(ThehallActivity.class);
+                break;
             case R.id.ivBack:
                 finish();
+                break;
+            case R.id.rlMoney:
+                startToActivity(SpeedActivity.class);
                 break;
         }
     }

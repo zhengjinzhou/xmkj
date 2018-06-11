@@ -70,4 +70,13 @@ public class XmkjApi {
     getuserCertificate(String id,String token,String realname,String idcard,String idcard_front,String idcard_back){
         return service.getuserCertificate(id,token,realname,idcard,idcard_front,idcard_back);
     }
+
+    public Observable<BaseBean>
+    getCheckVerifyCode(String mobile,String code,String type){
+        return service.checkVerifyCode(mobile,code,type);
+    }
+
+    public Observable<BaseBean> setNewPassword(String mobile,String password,String aspassword){
+        return service.setNewPassword(mobile,password,aspassword);
+    }
 }

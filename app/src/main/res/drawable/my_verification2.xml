@@ -6,16 +6,7 @@
         android:bottomRightRadius="10dp"
         android:bottomLeftRadius="10dp">
     </corners>
-    <stroke
-        android:width="3dp"
-        android:color="#999999">
-    </stroke>
     <solid
         android:color="#bcb9b6">
     </solid>
-    <padding
-        android:left="10dp"
-        android:top="10dp"
-        android:right="10dp"
-        android:bottom="10dp" />
 </shape>

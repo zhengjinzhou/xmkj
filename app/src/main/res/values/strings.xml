@@ -64,4 +64,5 @@
     <string name="my_message">我的信息</string>
     <string name="zhifu_account">支付账户</string>
     <string name="real_name_cant_empty">真实姓名不能为空！</string>
+    <string name="about_me">关于我们</string>
 </resources>

@@ -42,15 +42,22 @@
         <activity android:name=".ui.activity.personmessage.TipActivity" />
         <activity android:name=".ui.activity.NicknameActivity" />
         <activity android:name=".ui.activity.FansActivity" />
-        <activity android:name=".ui.activity.CurrentActivity" />
+        <activity android:name=".ui.activity.current.CurrentActivity" />
         <activity android:name=".ui.activity.MyMessageActivity" />
         <activity android:name=".ui.activity.setting.SettingActivity" />
         <activity android:name=".ui.activity.setting.SetPsdActivity" />
         <activity android:name=".ui.activity.setting.SetZhiActivity" />
         <activity android:name=".ui.activity.setting.SetLanguageActivity" />
-        <activity android:name=".ui.activity.setting.SetAboutActivity" />
         <activity android:name=".ui.activity.setting.SetEmailActivity" />
-        <activity android:name=".ui.activity.setting.SetPhoneActivity"></activity>
+        <activity android:name=".ui.activity.setting.SetPhoneActivity" />
+        <activity android:name=".ui.activity.setting.SettingPasswordActivity" />
+        <activity android:name=".ui.activity.setting.SettingZhifuActivity" />
+        <activity android:name=".ui.activity.setting.SettingAboutActivity" />
+        <activity android:name=".ui.activity.SpeedActivity" />
+        <activity android:name=".ui.activity.current.TransferActivity" />
+        <activity android:name=".ui.activity.current.InvestmentActivity" />
+        <activity android:name=".ui.activity.current.TradingActivity" />
+        <activity android:name=".ui.activity.current.ThehallActivity"></activity>
     </application>
 
 </manifest>
