@@ -1,5 +1,10 @@
 package zhou.com.xmkj.ui.activity;
 
+import android.view.View;
+import android.widget.TextView;
+
+import butterknife.BindView;
+import butterknife.OnClick;
 import zhou.com.xmkj.R;
 import zhou.com.xmkj.base.BaseActivity;
 
@@ -9,6 +14,9 @@ import zhou.com.xmkj.base.BaseActivity;
  */
 
 public class AccountMessageActivity extends BaseActivity{
+
+    @BindView(R.id.tvHead) TextView tvHead;
+
     @Override
     public int getLayout() {
         return R.layout.activity_account_message;
@@ -21,6 +29,15 @@ public class AccountMessageActivity extends BaseActivity{
 
     @Override
     public void configView() {
-
+        tvHead.setText("设置账户信息");
     }
+    @OnClick({R.id.ivBack})
+    void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.ivBack:
+                finish();
+                break;
+        }
+    }
+
 }

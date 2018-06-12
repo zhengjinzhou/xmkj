@@ -1,11 +1,18 @@
 package zhou.com.xmkj.api;
 
+import java.util.Map;
+
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.QueryMap;
 import rx.Observable;
+import zhou.com.xmkj.bean.AddressBean;
 import zhou.com.xmkj.bean.BaseBean;
 import zhou.com.xmkj.bean.FansListBean;
+import zhou.com.xmkj.bean.IndexBean;
 import zhou.com.xmkj.bean.IntradeBean;
 import zhou.com.xmkj.bean.LoginBean;
 import zhou.com.xmkj.bean.MyFansBean;
@@ -141,6 +148,16 @@ public interface XmkjApiService {
     getIntrade(@Field("id") int id,
                @Field("token") String token);
 
+    /**
+     * 身份认证
+     * @param id
+     * @param token
+     * @param page
+     * @param idcard
+     * @param idcard_front
+     * @param idcard_back
+     * @return
+     */
     @FormUrlEncoded
     @POST("user/userCertificate")
     Observable<BaseBean>
@@ -151,5 +168,45 @@ public interface XmkjApiService {
                        @Field("idcard_front") String idcard_front,
                        @Field("idcard_back") String idcard_back);
 
+    /**
+     * 主界面
+     * @return
+     */
+    @GET("home/index")
+    Observable<IndexBean>
+    getIndex();
 
+    /**
+     * 多参数上传
+     * 不定数参数
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("user/editUserInfo")
+    Observable<BaseBean>
+    editUserInfo(@Field("id") String id,
+                 @Field("token") String token,
+                 @Field("avatar") String avatar,
+                 @Field("nickname") String nickname,
+                 @Field("gender") String gender,
+                 @Field("signature")String signature,
+                 @Field("email") String email,
+                 @Field("password") String password,
+                 @Field("paypwd") String paypwd);
+
+    /**
+     * 获取收货地址
+     * @param id
+     * @param token
+     * @param page
+     * @param pagesize
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("user/getAddressList")
+    Observable<AddressBean>
+    getAddressList(@Field("id") int id,
+                   @Field("token") String token,
+                   @Field("page") int page,
+                   @Field("pagesize") int pagesize);
 }

@@ -1,5 +1,6 @@
 package zhou.com.xmkj.ui.activity;
 
+import android.annotation.SuppressLint;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -22,24 +23,15 @@ public class MainActivity extends BaseActivity {
 
     private Fragment[] fragments;
     private int currentTabIndex = 0;
-    @BindView(R.id.ivMessage)
-    ImageView ivMessage;
-    @BindView(R.id.tvMessage)
-    TextView tvMessage;
-    @BindView(R.id.ivLife)
-    ImageView ivLife;
-    @BindView(R.id.tvLife)
-    TextView tvLife;
-    @BindView(R.id.ivDynamic)
-    ImageView ivDynamic;
-    @BindView(R.id.tvDynamic)
-    TextView tvDynamic;
-    @BindView(R.id.ivMy)
-    ImageView ivMy;
-    @BindView(R.id.tvMy)
-    TextView tvMy;
-    @BindView(R.id.ivIndex)
-    ImageView ivIndex;
+    @BindView(R.id.ivMessage) ImageView ivMessage;
+    @BindView(R.id.tvMessage) TextView tvMessage;
+    @BindView(R.id.ivLife) ImageView ivLife;
+    @BindView(R.id.tvLife) TextView tvLife;
+    @BindView(R.id.ivDynamic) ImageView ivDynamic;
+    @BindView(R.id.tvDynamic) TextView tvDynamic;
+    @BindView(R.id.ivMy) ImageView ivMy;
+    @BindView(R.id.tvMy) TextView tvMy;
+    @BindView(R.id.ivIndex) ImageView ivIndex;
 
     @Override
     public int getLayout() {
@@ -58,15 +50,18 @@ public class MainActivity extends BaseActivity {
         IndexFragment indexFragment = new IndexFragment();
         DynamicFragment dynamicFragment = new DynamicFragment();
         MyFragment myFragment = new MyFragment();
+
         fragments = new Fragment[]{messageFragment, lifeFragment, indexFragment, dynamicFragment, myFragment};
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.fragment_content, messageFragment).hide(messageFragment)
+
+        fragmentTransaction.add(R.id.fragment_content, indexFragment).hide(indexFragment).add(R.id.fragment_content, messageFragment).hide(messageFragment)
                 .add(R.id.fragment_content, lifeFragment).hide(lifeFragment)
-                .add(R.id.fragment_content, indexFragment).hide(indexFragment)
+
                 .add(R.id.fragment_content, dynamicFragment).hide(dynamicFragment)
                 .show(indexFragment)
                 .commit();
         setCheckImager(2);
+
     }
 
     /**

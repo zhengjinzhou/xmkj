@@ -83,7 +83,7 @@ public class UserInfoActivity extends BaseActivity {
 
                 break;
             case R.id.rlAddress://收货地址
-
+                startToActivity(AddressActivity.class);
                 break;
             case R.id.rlTip://个性标签
                 startToActivity(TipActivity.class);

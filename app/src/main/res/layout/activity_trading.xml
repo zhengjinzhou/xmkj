@@ -1,9 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="zhou.com.xmkj.ui.activity.current.TradingActivity">
+    android:background="@color/common_bg"
+    tools:context="zhou.com.xmkj.ui.activity.current.ThehallActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <include layout="@layout/layout_header" />
+
+    <RelativeLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llHead"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_size_16"
+            android:text="流通子链"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv"
+            android:paddingBottom="@dimen/dp_size_8"
+            android:paddingLeft="@dimen/dp_size_16"
+            android:text="30.00"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_size_30" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll">
+
+        <RelativeLayout
+            android:id="@+id/rlSun"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/touch_bg"
+            android:paddingBottom="@dimen/dp_size_5"
+            android:paddingTop="@dimen/dp_size_5">
+
+            <ImageView
+                android:id="@+id/iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/icon_38" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv"
+                android:layout_centerHorizontal="true"
+                android:text="转交易子链" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlRegister"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_size_1"
+            android:layout_weight="1"
+            android:background="@drawable/touch_bg"
+            android:paddingBottom="@dimen/dp_size_5"
+            android:paddingTop="@dimen/dp_size_5">
+
+            <ImageView
+                android:id="@+id/iv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/icon_31" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv2"
+                android:layout_centerHorizontal="true"
+                android:text="转注册链" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll2"
+        android:padding="@dimen/dp_size_16"
+        android:text="最近交易" />
+</RelativeLayout>

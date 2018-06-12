@@ -1,5 +1,7 @@
 package zhou.com.xmkj.api;
 
+import java.util.Map;
+
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import retrofit2.Retrofit;
@@ -7,8 +9,10 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Observable;
 import zhou.com.xmkj.base.Constant;
+import zhou.com.xmkj.bean.AddressBean;
 import zhou.com.xmkj.bean.BaseBean;
 import zhou.com.xmkj.bean.FansListBean;
+import zhou.com.xmkj.bean.IndexBean;
 import zhou.com.xmkj.bean.IntradeBean;
 import zhou.com.xmkj.bean.LoginBean;
 import zhou.com.xmkj.bean.MyFansBean;
@@ -46,6 +50,12 @@ public class XmkjApi {
         return service.getUserInfo(id,token);
     }
 
+    /**
+     * 粉丝主界面
+     * @param id
+     * @param token
+     * @return
+     */
     public Observable<MyFansBean> getIndex(String id,String token){
         return service.getIndex(id,token);
     }
@@ -78,5 +88,22 @@ public class XmkjApi {
 
     public Observable<BaseBean> setNewPassword(String mobile,String password,String aspassword){
         return service.setNewPassword(mobile,password,aspassword);
+    }
+
+    /**
+     * 主界面
+     * @return
+     */
+    public Observable<IndexBean> getIndex(){
+        return service.getIndex();
+    }
+
+    public Observable<BaseBean> editUserInfo(String id,String token,String avatar,String nickname,
+                                             String gender,String signature,String email,String password,String paypwd){
+        return service.editUserInfo(id,token,avatar,nickname,gender,signature,email,password,paypwd);
+    }
+
+    public Observable<AddressBean> getAddressList(int id,String token,int page,int pagesize){
+        return service.getAddressList(id,token,page,pagesize);
     }
 }

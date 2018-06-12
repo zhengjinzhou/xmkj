@@ -20,7 +20,10 @@ import zhou.com.xmkj.base.App;
 import zhou.com.xmkj.base.BaseFragment;
 import zhou.com.xmkj.bean.MyBaseBean;
 import zhou.com.xmkj.bean.UserInfoBean;
+import zhou.com.xmkj.ui.activity.AccountMessageActivity;
 import zhou.com.xmkj.ui.activity.CodeActivity;
+import zhou.com.xmkj.ui.activity.HallMembersActivity;
+import zhou.com.xmkj.ui.activity.VRCHActivity;
 import zhou.com.xmkj.ui.activity.current.CurrentActivity;
 import zhou.com.xmkj.ui.activity.MyMessageActivity;
 import zhou.com.xmkj.ui.activity.setting.SettingActivity;
@@ -71,7 +74,7 @@ public class MyFragment extends BaseFragment implements UserInfoContract.View{
         List<MyBaseBean> data = new ArrayList<>();
         data.add(new MyBaseBean(MyMessageActivity.class,getString(R.string.my_news),R.drawable.icon_11));
         data.add(new MyBaseBean(RealNameAuthenticationActivity.class,getString(R.string.txt_real_name_authentication),R.drawable.icon_47));
-        data.add(new MyBaseBean(RealNameAuthenticationActivity.class,"账户信息",R.drawable.icon_9));
+        data.add(new MyBaseBean(AccountMessageActivity.class,"账户信息",R.drawable.icon_9));
         data.add(new MyBaseBean(CodeActivity.class,getString(R.string.txt_my_code),R.drawable.icon_10));
         data.add(new MyBaseBean(RegisterActivity.class,getString(R.string.txt_register),R.drawable.icon_9));
         data.add(new MyBaseBean(HelpActivity.class,getString(R.string.txt_help_center),R.drawable.icon_7));
@@ -144,8 +147,10 @@ public class MyFragment extends BaseFragment implements UserInfoContract.View{
                 startToActivity(CurrentActivity.class);
                 break;
             case R.id.rlDynamic://VRCH结算
+                startToActivity(VRCHActivity.class);
                 break;
             case R.id.rlMy://会员充值
+                startToActivity(HallMembersActivity.class);
                 break;
             case R.id.ivRight:
                 startToActivity(SettingActivity.class);

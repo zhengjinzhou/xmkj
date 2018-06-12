@@ -1,9 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="zhou.com.xmkj.ui.activity.setting.SetLanguageActivity">
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="zhou.com.xmkj.ui.activity.AddressActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <include layout="@layout/layout_header" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_size_16"
+        android:background="@color/common_bg" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_size_16">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="中文(简体)" />
+
+        <ImageView
+            android:id="@+id/ivChina1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/yes"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_size_1"
+        android:layout_marginLeft="@dimen/dp_size_8"
+        android:layout_marginRight="@dimen/dp_size_8"
+        android:background="@color/common_bg" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_size_16">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="中文(繁体)" />
+
+        <ImageView
+            android:id="@+id/ivChina2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/yes"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_size_1"
+        android:layout_marginLeft="@dimen/dp_size_8"
+        android:layout_marginRight="@dimen/dp_size_8"
+        android:background="@color/common_bg" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_size_16">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="English" />
+
+        <ImageView
+            android:id="@+id/ivEnglish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/yes"
+            android:visibility="gone" />
+    </RelativeLayout>
+</LinearLayout>

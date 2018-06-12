@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:name=".base.App"
@@ -14,6 +15,16 @@
         android:roundIcon="@drawable/logo_2"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="net.csdn.blog.ruancoder.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
         <activity android:name=".ui.activity.WelcomActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -57,7 +68,20 @@
         <activity android:name=".ui.activity.current.TransferActivity" />
         <activity android:name=".ui.activity.current.InvestmentActivity" />
         <activity android:name=".ui.activity.current.TradingActivity" />
-        <activity android:name=".ui.activity.current.ThehallActivity"></activity>
+        <activity android:name=".ui.activity.current.ThehallActivity" />
+        <activity android:name=".ui.activity.current.SunActivity" />
+        <activity android:name=".ui.activity.current.CurrentRegisterActivity" />
+        <activity android:name=".ui.activity.VRCHActivity" />
+        <activity android:name=".ui.activity.HallMembersActivity" />
+        <activity android:name=".ui.activity.index.VRCarActivity" />
+        <activity android:name=".ui.activity.index.VRMarketActivity" />
+        <activity android:name=".ui.activity.index.VRShoppingActivity" />
+        <activity android:name=".ui.activity.index.VRHomeActivity" />
+        <activity android:name=".ui.activity.index.VRFilmActivity" />
+        <activity android:name=".ui.activity.index.VRTravelActivity" />
+        <activity android:name=".ui.activity.index.VRFootActivity" />
+        <activity android:name=".ui.activity.index.VRMoreActivity" />
+        <activity android:name=".ui.activity.AddressActivity"></activity>
     </application>
 
 </manifest>
