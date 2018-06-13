@@ -71,7 +71,7 @@
         <activity android:name=".ui.activity.current.ThehallActivity" />
         <activity android:name=".ui.activity.current.SunActivity" />
         <activity android:name=".ui.activity.current.CurrentRegisterActivity" />
-        <activity android:name=".ui.activity.VRCHActivity" />
+        <activity android:name=".ui.activity.vrch.VRCHActivity" />
         <activity android:name=".ui.activity.HallMembersActivity" />
         <activity android:name=".ui.activity.index.VRCarActivity" />
         <activity android:name=".ui.activity.index.VRMarketActivity" />
@@ -81,7 +81,10 @@
         <activity android:name=".ui.activity.index.VRTravelActivity" />
         <activity android:name=".ui.activity.index.VRFootActivity" />
         <activity android:name=".ui.activity.index.VRMoreActivity" />
-        <activity android:name=".ui.activity.AddressActivity"></activity>
+        <activity android:name=".ui.activity.AddressActivity" />
+        <activity android:name=".ui.activity.vrch.VrchOutActivity" />
+        <activity android:name=".ui.activity.vrch.VrchInActivity" />
+        <activity android:name=".ui.activity.current.Investment2Activity"></activity>
     </application>
 
 </manifest>

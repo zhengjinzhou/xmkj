@@ -34,8 +34,6 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
     }
     @Override
     public void login() {
-
-
         Subscription subscription = xmkjApi.login(getUsername(), MD5.md5(getPassword()))
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())

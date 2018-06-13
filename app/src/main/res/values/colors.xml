@@ -16,4 +16,7 @@
     <color name="common_divider_narrow">#B2B2B2</color>
     <color name="red">#f12d2d</color>
     <color name="touming">#00000000</color>
+    <color name="text_color">#757575</color>
+    <color name="text_money">#ff0707</color>
+    <color name="text_money2">#28fb29</color>
 </resources>

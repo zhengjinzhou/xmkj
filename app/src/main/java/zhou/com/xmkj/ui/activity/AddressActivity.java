@@ -2,12 +2,14 @@ package zhou.com.xmkj.ui.activity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 import zhou.com.xmkj.R;
 import zhou.com.xmkj.base.BaseActivity;
 import zhou.com.xmkj.bean.AddressBean;
@@ -58,6 +60,14 @@ public class AddressActivity extends BaseActivity implements AddressContract.Vie
 
             adapter.add(list);
             adapter.notifyDataSetChanged();
+        }
+    }
+
+    @OnClick({R.id.ivBack}) void onClick(View view){
+        switch (view.getId()){
+            case R.id.ivBack:
+                finish();
+                break;
         }
     }
 

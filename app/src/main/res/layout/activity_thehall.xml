@@ -25,6 +25,7 @@
             android:textColor="@color/white" />
 
         <TextView
+            android:id="@+id/tvNum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv"
@@ -48,6 +49,7 @@
         android:text="挂卖记录" />
 
     <android.support.v7.widget.RecyclerView
+        android:layout_above="@+id/llll"
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -55,15 +57,17 @@
         android:layout_marginTop="@dimen/dp_size_1" />
 
     <LinearLayout
+        android:id="@+id/llll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true">
 
         <RelativeLayout
+            android:id="@+id/rlSell"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/white"
+            android:background="@drawable/touch_bg"
             android:paddingTop="@dimen/dp_size_5">
 
             <ImageView
@@ -82,11 +86,12 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/rlBuy"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp_size_1"
             android:layout_weight="1"
-            android:background="@color/white"
+            android:background="@drawable/touch_bg"
             android:paddingTop="@dimen/dp_size_5">
 
             <ImageView

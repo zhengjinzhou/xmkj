@@ -1,14 +1,12 @@
 package zhou.com.xmkj.ui.fragment;
 
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.youth.banner.Banner;
 
 import java.util.ArrayList;
@@ -19,13 +17,7 @@ import zhou.com.xmkj.R;
 import zhou.com.xmkj.base.BaseFragment;
 import zhou.com.xmkj.bean.IndexBean;
 import zhou.com.xmkj.bean.MyBaseBean;
-import zhou.com.xmkj.ui.activity.AccountMessageActivity;
-import zhou.com.xmkj.ui.activity.CodeActivity;
-import zhou.com.xmkj.ui.activity.MyMessageActivity;
-import zhou.com.xmkj.ui.activity.RealNameAuthenticationActivity;
-import zhou.com.xmkj.ui.activity.RegisterActivity;
-import zhou.com.xmkj.ui.activity.VRCHActivity;
-import zhou.com.xmkj.ui.activity.help.HelpActivity;
+import zhou.com.xmkj.ui.activity.vrch.VRCHActivity;
 import zhou.com.xmkj.ui.activity.index.VRFilmActivity;
 import zhou.com.xmkj.ui.activity.index.VRFootActivity;
 import zhou.com.xmkj.ui.activity.index.VRHomeActivity;

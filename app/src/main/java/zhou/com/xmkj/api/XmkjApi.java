@@ -16,7 +16,12 @@ import zhou.com.xmkj.bean.IndexBean;
 import zhou.com.xmkj.bean.IntradeBean;
 import zhou.com.xmkj.bean.LoginBean;
 import zhou.com.xmkj.bean.MyFansBean;
+import zhou.com.xmkj.bean.RewardDetailBean;
+import zhou.com.xmkj.bean.ShareSalesBean;
+import zhou.com.xmkj.bean.TradingBean;
 import zhou.com.xmkj.bean.UserInfoBean;
+import zhou.com.xmkj.bean.VrchInfoBean;
+import zhou.com.xmkj.bean.WalletBean;
 
 /**
  * Created by zhou on 2018/5/25.
@@ -105,5 +110,49 @@ public class XmkjApi {
 
     public Observable<AddressBean> getAddressList(int id,String token,int page,int pagesize){
         return service.getAddressList(id,token,page,pagesize);
+    }
+
+    public Observable<BaseBean> logout(int id,String token){
+        return service.Logout(id,token);
+    }
+
+    public Observable<VrchInfoBean> getVrchInfo(int id, String token){
+        return service.getVrchInfo(id,token);
+    }
+
+    public Observable<BaseBean> vrchInto(int id, String token,String amount){
+        return service.vrchInto(id,token,amount);
+    }
+
+    public Observable<BaseBean> vrchOut(int id, String token,String amount){
+        return service.vrchOut(id,token,amount);
+    }
+
+    public Observable<RewardDetailBean> getRewardDetail(int id,String token,int page,int pagesize){
+        return service.getRewardDetail(id,token,page,pagesize);
+    }
+
+    public Observable<ShareSalesBean> getShareIndex(int id, String token){
+        return service.getShareIndex(id,token);
+    }
+
+    public Observable<WalletBean> getUserWallet(int id, String token,int type){
+        return service.getUserWallet(id,token,type);
+    }
+
+    public Observable<TradingBean> getExchangeDetail(int id, String token, int page, int pagesize){
+        return service.getExchangeDetail(id,token,page,pagesize);
+    }
+
+    public Observable<BaseBean> userExchange(int id, String token, int type, String money){
+        return service.userExchange(id,token,type,money);
+    }
+
+    public Observable<BaseBean> updateUserVip(int id, String token, String rname, int pos){
+        return service.updateUserVip(id,token,rname,pos);
+    }
+
+    public Observable<BaseBean> userTransfer(int id, String token, int type, String username, String money){
+        return service.userTransfer(id,token,type,username,money);
     }
 }

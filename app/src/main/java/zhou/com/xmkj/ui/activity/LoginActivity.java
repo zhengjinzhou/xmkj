@@ -13,6 +13,7 @@ import zhou.com.xmkj.R;
 import zhou.com.xmkj.base.App;
 import zhou.com.xmkj.base.BaseActivity;
 import zhou.com.xmkj.bean.LoginBean;
+import zhou.com.xmkj.ui.activity.setting.SettingPasswordActivity;
 import zhou.com.xmkj.ui.contract.LoginContract;
 import zhou.com.xmkj.ui.presenter.LoginPresenter;
 import zhou.com.xmkj.utils.ToastUtils;
@@ -33,7 +34,7 @@ public class LoginActivity extends BaseActivity implements LoginContract.View{
 
     @Override
     public void initData() {
-        etUsername.setText("33");
+        etUsername.setText("zxcvb");
         etPsd.setText("123456");
     }
 
@@ -47,7 +48,8 @@ public class LoginActivity extends BaseActivity implements LoginContract.View{
     void onClick(View view){
         switch (view.getId()){
             case R.id.tvForget:
-                startToActivity(ForgetActivity.class);
+                //startToActivity(ForgetActivity.class);
+                startToActivity(SettingPasswordActivity.class);
                 break;
             case R.id.btLogin:
                 if (TextUtils.isEmpty(etUsername.getText().toString().trim())){

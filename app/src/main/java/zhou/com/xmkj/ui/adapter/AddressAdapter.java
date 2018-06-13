@@ -24,6 +24,6 @@ public class AddressAdapter extends BaseCommonAdapter<AddressBean.DataBean.ListB
     public void convert(ViewHolder holder, AddressBean.DataBean.ListBean dataBean, int position) {
         holder.setText(R.id.tvName,dataBean.getUsername());
         holder.setText(R.id.tvPhone,dataBean.getMobile());
-        holder.setText(R.id.tvWrite,dataBean.getAddress());
+        holder.setText(R.id.tvMsg,dataBean.getAddress());
     }
 }

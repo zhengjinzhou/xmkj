@@ -251,7 +251,7 @@
                     android:layout_marginLeft="@dimen/dp_size_8"
                     android:layout_toRightOf="@+id/iv_icon"
                     android:padding="@dimen/dp_size_16"
-                    android:text="手机号码"
+                    android:text="语言选择"
                     android:textColor="@color/common_text_color" />
 
                 <TextView

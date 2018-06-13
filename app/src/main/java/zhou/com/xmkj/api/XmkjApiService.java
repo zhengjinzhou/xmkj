@@ -16,7 +16,12 @@ import zhou.com.xmkj.bean.IndexBean;
 import zhou.com.xmkj.bean.IntradeBean;
 import zhou.com.xmkj.bean.LoginBean;
 import zhou.com.xmkj.bean.MyFansBean;
+import zhou.com.xmkj.bean.RewardDetailBean;
+import zhou.com.xmkj.bean.ShareSalesBean;
+import zhou.com.xmkj.bean.TradingBean;
 import zhou.com.xmkj.bean.UserInfoBean;
+import zhou.com.xmkj.bean.VrchInfoBean;
+import zhou.com.xmkj.bean.WalletBean;
 
 /**
  * Created by zhou on 2018/5/25.
@@ -74,6 +79,7 @@ public interface XmkjApiService {
 
     /**
      * 验证验证码
+     *
      * @param mobile
      * @param code
      * @param type
@@ -88,6 +94,7 @@ public interface XmkjApiService {
 
     /**
      * 修改密码-找回密码
+     *
      * @param mobile
      * @param password
      * @param aspassword
@@ -96,9 +103,9 @@ public interface XmkjApiService {
     @FormUrlEncoded
     @POST("login/setNewPassword")
     Observable<BaseBean> setNewPassword(
-        @Field("mobile") String mobile,
-        @Field("password") String password,
-        @Field("aspassword") String aspassword);
+            @Field("mobile") String mobile,
+            @Field("password") String password,
+            @Field("aspassword") String aspassword);
 
     /**
      * 注册
@@ -138,6 +145,7 @@ public interface XmkjApiService {
 
     /**
      * 获取流通交易数据
+     *
      * @param id
      * @param token
      * @return
@@ -150,6 +158,7 @@ public interface XmkjApiService {
 
     /**
      * 身份认证
+     *
      * @param id
      * @param token
      * @param page
@@ -170,6 +179,7 @@ public interface XmkjApiService {
 
     /**
      * 主界面
+     *
      * @return
      */
     @GET("home/index")
@@ -179,6 +189,7 @@ public interface XmkjApiService {
     /**
      * 多参数上传
      * 不定数参数
+     *
      * @return
      */
     @FormUrlEncoded
@@ -189,13 +200,14 @@ public interface XmkjApiService {
                  @Field("avatar") String avatar,
                  @Field("nickname") String nickname,
                  @Field("gender") String gender,
-                 @Field("signature")String signature,
+                 @Field("signature") String signature,
                  @Field("email") String email,
                  @Field("password") String password,
                  @Field("paypwd") String paypwd);
 
     /**
      * 获取收货地址
+     *
      * @param id
      * @param token
      * @param page
@@ -209,4 +221,134 @@ public interface XmkjApiService {
                    @Field("token") String token,
                    @Field("page") int page,
                    @Field("pagesize") int pagesize);
+
+
+    /**
+     * 强制退出
+     *
+     * @param id
+     * @param token
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("login/logout")
+    Observable<BaseBean>
+    Logout(@Field("id") int id, @Field("token") String token);
+
+    /**
+     * vrch交易信息
+     *
+     * @param id
+     * @param token
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("outtrade/getVrchInfo")
+    Observable<VrchInfoBean>
+    getVrchInfo(@Field("id") int id, @Field("token") String token);
+
+    /**
+     * vrch转入
+     *
+     * @param id
+     * @param token
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("outtrade/vrchInto")
+    Observable<BaseBean> vrchInto(@Field("id") int id, @Field("token") String token, @Field("amount") String amount);
+
+    /**
+     * vrch转出
+     *
+     * @param id
+     * @param token
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("outtrade/vrchOut")
+    Observable<BaseBean> vrchOut(@Field("id") int id, @Field("token") String token, @Field("amount") String amount);
+
+    /**
+     * 加速明细
+     * @param id
+     * @param token
+     * @param page
+     * @param pagesize
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("intrade/getRewardDetail")
+    Observable<RewardDetailBean>
+    getRewardDetail(@Field("id") int id, @Field("token") String token,@Field("page") int page, @Field("pagesize") int pagesize);
+
+    /**
+     * 交易大厅首页
+     * @param id
+     * @param token
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("intrade/getShareIndex")
+    Observable<ShareSalesBean>getShareIndex(@Field("id") int id, @Field("token") String token);
+
+    /**
+     * 获取用户钱包
+     *
+     * 类型,0:定仓主链,1:定仓子链,2:流通子链,3:交易子链,4:重消积分,5:注册链
+     * @param id
+     * @param token
+     * @param type
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("user/getUserWallet")
+    Observable<WalletBean>
+    getUserWallet(@Field("id") int id, @Field("token") String token,@Field("type") int type);
+
+    /**
+     * 转换交易明细
+     *
+     * 类型,0:定仓主链,1:定仓子链,2:流通子链,3:交易子链,4:重消积分,5:注册链
+     * @param id
+     * @param token
+     * @param page
+     * @param pagesize
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("intrade/getExchangeDetail")
+    Observable<TradingBean> getExchangeDetail(@Field("id") int id, @Field("token") String token,@Field("page") int page, @Field("pagesize") int pagesize);
+
+    /**
+     * 转换交易
+     * 类型,0:定仓主链,1:定仓子链,2:流通子链,3:交易子链,4:重消积分,5:注册链
+     * @param id
+     * @param token
+     * @param type
+     * @param money
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("intrade/userExchange")
+    Observable<BaseBean>
+    userExchange(@Field("id") int id, @Field("token") String token,@Field("type") int type, @Field("money") String money);
+
+    /**
+     * 升级VIP/完善信息
+     * @param id
+     * @param token
+     * @param rname
+     * @param pos
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("user/updateUserVip")
+    Observable<BaseBean>
+    updateUserVip(@Field("id") int id, @Field("token") String token,@Field("rname") String rname, @Field("pos") int pos);
+
+    @FormUrlEncoded
+    @POST("intrade/userTransfer")
+    Observable<BaseBean>
+    userTransfer(@Field("id") int id, @Field("token") String token,@Field("type") int type, @Field("username") String username,@Field("money")String money);
 }

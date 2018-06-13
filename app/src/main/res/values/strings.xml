@@ -65,4 +65,8 @@
     <string name="zhifu_account">支付账户</string>
     <string name="real_name_cant_empty">真实姓名不能为空！</string>
     <string name="about_me">关于我们</string>
+    <string name="vrch_out">VRCH转出</string>
+    <string name="vrch_in">VRCH转入</string>
+    <string name="txt_jinge">金额</string>
+    <string name="input_num">请输入金额数量</string>
 </resources>

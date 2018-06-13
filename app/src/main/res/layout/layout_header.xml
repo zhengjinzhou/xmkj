@@ -13,6 +13,16 @@
         android:src="@drawable/header_5" />
 
     <TextView
+        android:id="@+id/tvLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/header_1"
+        android:drawablePadding="@dimen/dp_size_5"
+        android:padding="@dimen/sp_size_16"
+        android:textColor="@color/white"
+        android:visibility="gone" />
+
+    <TextView
         android:id="@+id/tvHead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,6 +39,14 @@
         android:padding="@dimen/dp_size_16"
         android:textColor="@color/white"
         android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/ivRight2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/ivRight"
+        android:padding="@dimen/dp_size_16" />
 
     <ImageView
         android:id="@+id/ivRight"

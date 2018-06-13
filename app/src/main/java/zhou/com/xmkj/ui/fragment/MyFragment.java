@@ -23,7 +23,7 @@ import zhou.com.xmkj.bean.UserInfoBean;
 import zhou.com.xmkj.ui.activity.AccountMessageActivity;
 import zhou.com.xmkj.ui.activity.CodeActivity;
 import zhou.com.xmkj.ui.activity.HallMembersActivity;
-import zhou.com.xmkj.ui.activity.VRCHActivity;
+import zhou.com.xmkj.ui.activity.vrch.VRCHActivity;
 import zhou.com.xmkj.ui.activity.current.CurrentActivity;
 import zhou.com.xmkj.ui.activity.MyMessageActivity;
 import zhou.com.xmkj.ui.activity.setting.SettingActivity;

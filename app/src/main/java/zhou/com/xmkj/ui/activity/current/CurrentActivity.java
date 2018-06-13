@@ -107,7 +107,7 @@ public class CurrentActivity extends BaseActivity implements CurrentContract.Vie
         super.onDestroy();
     }
 
-    @OnClick({R.id.ivBack,R.id.rlMoney,R.id.rlDynamic,R.id.rlMy}) void onClick(View view){
+    @OnClick({R.id.ivBack,R.id.rlMoney,R.id.rlDynamic,R.id.rlMy,R.id.rlMessage,R.id.rlLife}) void onClick(View view){
         switch (view.getId()){
             case R.id.rlMessage://流通转账
                 startToActivity(TransferActivity.class);

@@ -52,4 +52,9 @@
             android:layout_toRightOf="@+id/iv"
             android:text="@string/hot_request" />
     </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </LinearLayout>

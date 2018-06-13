@@ -27,7 +27,7 @@
             android:paddingTop="@dimen/dp_size_5">
 
             <TextView
-                android:id="@+id/iv"
+                android:id="@+id/tvKtval"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -37,7 +37,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/iv"
+                android:layout_below="@+id/tvKtval"
                 android:layout_centerHorizontal="true"
                 android:text="主链"
                 android:textColor="@color/white" />
@@ -60,7 +60,7 @@
             android:paddingTop="@dimen/dp_size_5">
 
             <TextView
-                android:id="@+id/iv2"
+                android:id="@+id/tvVrchval"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -70,7 +70,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/iv2"
+                android:layout_below="@+id/tvVrchval"
                 android:layout_centerHorizontal="true"
                 android:text="VRCH"
                 android:textColor="@color/white" />
@@ -92,7 +92,7 @@
             android:paddingTop="@dimen/dp_size_5">
 
             <TextView
-                android:id="@+id/iv3"
+                android:id="@+id/tvPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -102,12 +102,19 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/iv3"
+                android:layout_below="@+id/tvPrice"
                 android:layout_centerHorizontal="true"
                 android:text="价格"
                 android:textColor="@color/white" />
         </RelativeLayout>
     </LinearLayout>
+
+    <WebView
+        android:padding="@dimen/dp_size_8"
+        android:id="@+id/webView"
+        android:layout_below="@+id/ll2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -115,10 +122,11 @@
         android:layout_alignParentBottom="true">
 
         <RelativeLayout
+            android:id="@+id/rlOut"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/white"
+            android:background="@drawable/touch_bg"
             android:paddingTop="@dimen/dp_size_5">
 
             <ImageView
@@ -133,15 +141,16 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/iv5"
                 android:layout_centerHorizontal="true"
-                android:text="VRCH转出" />
+                android:text="@string/vrch_out" />
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/rlIn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp_size_1"
             android:layout_weight="1"
-            android:background="@color/white"
+            android:background="@drawable/touch_bg"
             android:paddingTop="@dimen/dp_size_5">
 
             <ImageView
@@ -156,7 +165,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/iv4"
                 android:layout_centerHorizontal="true"
-                android:text="VRCH转入" />
+                android:text="@string/vrch_in" />
         </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>

@@ -1,5 +1,10 @@
 package zhou.com.xmkj.ui.fragment;
 
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import butterknife.BindView;
 import zhou.com.xmkj.R;
 import zhou.com.xmkj.base.BaseFragment;
 
@@ -9,6 +14,10 @@ import zhou.com.xmkj.base.BaseFragment;
  */
 
 public class DynamicFragment extends BaseFragment {
+
+    @BindView(R.id.tvHead) TextView tvHead;
+    @BindView(R.id.ivBack) ImageView ivBack;
+
     @Override
     public int getLayout() {
         return R.layout.fragment_dynamic;
@@ -26,6 +35,7 @@ public class DynamicFragment extends BaseFragment {
 
     @Override
     public void configViews() {
-
+        tvHead.setText(R.string.txt_dynamic);
+        ivBack.setVisibility(View.GONE);
     }
 }

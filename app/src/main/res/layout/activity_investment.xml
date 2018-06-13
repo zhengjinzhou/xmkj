@@ -12,43 +12,54 @@
 
 
     <RelativeLayout
-        android:layout_marginTop="@dimen/dp_size_8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_size_8"
         android:background="@drawable/touch_bg">
 
         <TextView
             android:id="@+id/tvTrade"
-            android:text="接点人"
-            android:layout_centerVertical="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:padding="@dimen/dp_size_16"
+            android:text="接点人"
             android:textColor="@color/common_text_color" />
+
         <EditText
-            android:textSize="@dimen/sp_size_15"
-            android:hint="请输入接点人"
+            android:id="@+id/etUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/tvTrade"
             android:background="@null"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:hint="请输入接点人"
+            android:textSize="@dimen/sp_size_15" />
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_marginTop="@dimen/dp_size_1"
+        android:id="@+id/rlSelect"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_size_1"
         android:background="@drawable/touch_bg">
 
         <TextView
-            android:text="选择市场"
-            android:layout_centerVertical="true"
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:padding="@dimen/dp_size_16"
+            android:text="选择市场"
             android:textColor="@color/common_text_color" />
+
+        <TextView
+            android:id="@+id/tvContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/iv"
+            android:padding="@dimen/dp_size_16"
+            android:src="@drawable/icon_2" />
 
         <ImageView
             android:id="@+id/iv"
@@ -61,7 +72,7 @@
 
 
     <Button
-        android:id="@+id/btSubmit"
+        android:id="@+id/btNext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dp_size_50"
@@ -70,6 +81,5 @@
         android:background="@drawable/bg_login"
         android:text="下一步"
         android:textColor="@color/white"
-        android:textSize="@dimen/sp_size_16"
-        />
+        android:textSize="@dimen/sp_size_16" />
 </LinearLayout>
