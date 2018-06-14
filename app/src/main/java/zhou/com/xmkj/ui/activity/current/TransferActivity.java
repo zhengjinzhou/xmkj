@@ -16,15 +16,16 @@ import butterknife.OnClick;
 import zhou.com.xmkj.R;
 import zhou.com.xmkj.base.BaseActivity;
 import zhou.com.xmkj.bean.BaseBean;
-import zhou.com.xmkj.bean.WalletBean;
+import zhou.com.xmkj.bean.InvestBean;
 import zhou.com.xmkj.ui.contract.TransferContract;
 import zhou.com.xmkj.ui.presenter.TransferPresenter;
 import zhou.com.xmkj.utils.ToastUtils;
 
 /**
  * 流通转账界面
+ * intrade/investIndex
  */
-public class TransferActivity extends BaseActivity {
+public class TransferActivity extends BaseActivity implements TransferContract.View {
 
     private static final String TAG = "TransferActivity";
     @BindView(R.id.tvHead) TextView tvHead;
@@ -51,7 +52,10 @@ public class TransferActivity extends BaseActivity {
 
     @Override
     public void configView() {
+        mPresenter.attachView(this);
         tvHead.setText("流通转账");
+        dialog.show();
+        mPresenter.getInvestIndex();
     }
 
     @OnClick({R.id.ivBack, R.id.rlType, R.id.btSubmit})
@@ -71,7 +75,7 @@ public class TransferActivity extends BaseActivity {
                     return;
                 }
                 dialog.show();
-
+                mPresenter.userTransfer();
                 break;
             case R.id.ivBack:
                 finish();
@@ -93,13 +97,61 @@ public class TransferActivity extends BaseActivity {
         }
     }
 
+    @Override
+    public void getInvestIndexSuccess(InvestBean indexBean) {
+        Log.d(TAG, "getInvestIndexSuccess: "+indexBean.toString());
+        if (indexBean.getCode()==200){
+            tvLeft.setText(indexBean.getData().getWalletName1());
+            tvLeftMoney.setText(indexBean.getData().getWalletMoney1());
+            tvRight.setText(indexBean.getData().getWalletName2());
+            tvRightMoney.setText(indexBean.getData().getWalletMoney2());
+        }
+    }
 
-   /* @Override
+    @Override
+    public void userTransferSuccess(BaseBean baseBean) {
+        Log.d(TAG, "userTransferSuccess: "+baseBean);
+        ToastUtils.showLongToast(baseBean.getMsg());
+        if (baseBean.getCode()==200){
+            finish();
+        }
+    }
+
+    @Override
+    public int setType() {
+        int pos = 2;
+        if (txData.equals("注册链")){
+            pos = 5;
+        }
+        return pos;
+    }
+
+    @Override
+    public String setUserName() {
+        return etNumber.getText().toString();
+    }
+
+    @Override
+    public String setMoney() {
+        return etJinE.getText().toString();
+    }
+
+    @Override
+    public void showError() {
+        dialog.dismiss();
+    }
+
+    @Override
+    public void complete() {
+        dialog.dismiss();
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         if (mPresenter != null) {
             mPresenter.detachView();
         }
-    }*/
+    }
 
 }

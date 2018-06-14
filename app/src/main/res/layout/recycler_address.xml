@@ -29,7 +29,7 @@
         android:id="@+id/tvMsg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/dp_size_8"
+        android:paddingLeft="@dimen/dp_size_8"
         android:background="@color/white"
         android:padding="@dimen/dp_size_8" />
 

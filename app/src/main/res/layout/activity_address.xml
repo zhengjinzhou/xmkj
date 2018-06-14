@@ -12,7 +12,7 @@
 
     <zhou.com.xmkj.view.ReboundScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content" />
 
             <Button
-                android:id="@+id/btSubmit"
+                android:id="@+id/btAdd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp_size_50"

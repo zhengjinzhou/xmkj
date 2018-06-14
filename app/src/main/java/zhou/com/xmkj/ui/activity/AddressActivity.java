@@ -16,6 +16,7 @@ import zhou.com.xmkj.bean.AddressBean;
 import zhou.com.xmkj.ui.adapter.AddressAdapter;
 import zhou.com.xmkj.ui.contract.AddressContract;
 import zhou.com.xmkj.ui.presenter.AddressPresenter;
+import zhou.com.xmkj.utils.ToastUtils;
 
 /**
  * 收货地址
@@ -42,11 +43,17 @@ public class AddressActivity extends BaseActivity implements AddressContract.Vie
     @Override
     public void configView() {
 
+        tvHead.setText("收货地址");
+
         ArrayList<AddressBean.DataBean.ListBean> dataBeans = new ArrayList<>();
         adapter = new AddressAdapter(this,R.layout.recycler_address,dataBeans);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
         mPresenter.attachView(this);
         dialog.show();
         mPresenter.getAddressList();
@@ -57,16 +64,22 @@ public class AddressActivity extends BaseActivity implements AddressContract.Vie
         Log.d(TAG, "getAddressListSuccess: "+addressBean.toString());
         if (addressBean.getCode()==200){
             List<AddressBean.DataBean.ListBean> list = addressBean.getData().getList();
-
+            if (list.size()==0){
+                ToastUtils.showLongToast("收货地址为空");
+            }
+            adapter.clear();
             adapter.add(list);
             adapter.notifyDataSetChanged();
         }
     }
 
-    @OnClick({R.id.ivBack}) void onClick(View view){
+    @OnClick({R.id.ivBack,R.id.btAdd}) void onClick(View view){
         switch (view.getId()){
             case R.id.ivBack:
                 finish();
+                break;
+            case R.id.btAdd:
+                startToActivity(AddAddressActivity.class);
                 break;
         }
     }

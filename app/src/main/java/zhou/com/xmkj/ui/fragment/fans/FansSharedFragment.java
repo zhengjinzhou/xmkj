@@ -80,6 +80,7 @@ public class FansSharedFragment extends BaseFragment implements FansContract.Vie
     public void getFansListSuccess(FansListBean fansListBean) {
         Log.d(TAG, "getFansListSuccess: "+fansListBean.toString());
         FansListBean.DataBean data = fansListBean.getData();
+        mAdapter.clear();
         mAdapter.add(data);
         mAdapter.notifyDataSetChanged();
     }

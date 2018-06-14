@@ -23,7 +23,7 @@ import zhou.com.xmkj.ui.presenter.InvestmentPresenter;
 import zhou.com.xmkj.utils.ToastUtils;
 
 /**
- * 流通投资界面
+ * 流通投资界面-1
  */
 public class InvestmentActivity extends BaseActivity implements InvestmentContract.View{
 

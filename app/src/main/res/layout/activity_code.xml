@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/common_bg"
+    android:orientation="vertical"
     tools:context="zhou.com.xmkj.ui.activity.CodeActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <include layout="@layout/layout_header" />
+
+    <ImageView
+        android:id="@id/ivAvater"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_centerInParent="true" />
+
+    <ImageView
+        android:id="@+id/ivCode"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/llHead" />
+
+</RelativeLayout>

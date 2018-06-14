@@ -25,5 +25,6 @@ public class AddressAdapter extends BaseCommonAdapter<AddressBean.DataBean.ListB
         holder.setText(R.id.tvName,dataBean.getUsername());
         holder.setText(R.id.tvPhone,dataBean.getMobile());
         holder.setText(R.id.tvMsg,dataBean.getAddress());
+
     }
 }

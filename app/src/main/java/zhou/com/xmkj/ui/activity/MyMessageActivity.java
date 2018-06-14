@@ -69,11 +69,11 @@ public class MyMessageActivity extends BaseActivity implements UserInfoContract.
         if (userInfoBean.getCode()==200){
             UserInfoBean.DataBean userInfoBeanData = userInfoBean.getData();
 
-            dataMessage.add(new MyBaseMessageBean(R.drawable.icon_11,"个人信息",userInfoBeanData.getUsername()));
-            dataMessage.add(new MyBaseMessageBean(R.drawable.icon_11,"姓名",userInfoBeanData.getNickname()));
-            dataMessage.add(new MyBaseMessageBean(R.drawable.icon_11,"手机",userInfoBeanData.getMobile()));
+            dataMessage.add(new MyBaseMessageBean(R.drawable.icon_16,"个人信息",userInfoBeanData.getUsername()));
+            dataMessage.add(new MyBaseMessageBean(R.drawable.icon_17,"姓名",userInfoBeanData.getNickname()));
+            dataMessage.add(new MyBaseMessageBean(R.drawable.icon_18,"手机",userInfoBeanData.getMobile()));
             dataMessage.add(new MyBaseMessageBean(R.drawable.icon_11,"推荐人",userInfoBeanData.getRname()));
-            dataMessage.add(new MyBaseMessageBean(R.drawable.icon_11,"接点人",userInfoBeanData.getPname()));
+            dataMessage.add(new MyBaseMessageBean(R.drawable.icon_19,"接点人",userInfoBeanData.getPname()));
 
             for (int i=0;i< userInfoBeanData.getWallet().size();i++){
                 dataAccount.add(new MyBaseAccountBean( userInfoBeanData.getWallet().get(i).getIcon(), userInfoBeanData.getWallet().get(i).getName(), userInfoBeanData.getWallet().get(i).getMoney()));

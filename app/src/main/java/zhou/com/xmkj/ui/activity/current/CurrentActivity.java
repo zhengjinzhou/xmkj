@@ -50,9 +50,15 @@ public class CurrentActivity extends BaseActivity implements CurrentContract.Vie
         List<IntradeBean.DataBean.WalletBean> dataBeans = new ArrayList<>();
         mAdapter = new BaseCommonAdapter<IntradeBean.DataBean.WalletBean>(mContext, R.layout.recycler_intrade, dataBeans) {
             @Override
-            public void convert(ViewHolder holder, IntradeBean.DataBean.WalletBean dataBean, int position) {
+            public void convert(ViewHolder holder, final IntradeBean.DataBean.WalletBean dataBean, int position) {
                 holder.setText(R.id.tvName,dataBean.getName());
                 holder.setText(R.id.tvNum,dataBean.getMoney());
+                holder.setOnClickListener(R.id.rlHead, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(Vrch_SunActivity.newIntent(CurrentActivity.this,dataBean.getName(),dataBean.getType()));
+                    }
+                });
             }
         };
         recyclerView.setLayoutManager(new GridLayoutManager(mContext,2));

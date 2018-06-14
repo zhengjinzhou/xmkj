@@ -146,31 +146,6 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/rlMessage"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_size_2"
-                android:background="@drawable/touch_bg">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:padding="@dimen/dp_size_16"
-                    android:text="@string/account_message"
-                    android:textColor="@color/common_text_color" />
-
-                <ImageView
-                    android:id="@+id/ivMessage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:padding="@dimen/dp_size_16"
-                    android:src="@drawable/icon_2" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
                 android:id="@+id/rlAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

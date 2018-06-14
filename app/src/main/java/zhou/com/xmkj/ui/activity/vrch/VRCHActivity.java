@@ -7,6 +7,7 @@ import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import butterknife.BindView;
@@ -23,16 +24,12 @@ import zhou.com.xmkj.ui.presenter.VRCHPresenter;
 public class VRCHActivity extends BaseActivity implements VRCHContract.View {
 
     private static final String TAG = "VRCHActivity";
-    @BindView(R.id.tvHead)
-    TextView tvHead;
-    @BindView(R.id.tvKtval)
-    TextView tvKtval;
-    @BindView(R.id.tvVrchval)
-    TextView tvVrchval;
-    @BindView(R.id.tvPrice)
-    TextView tvPrice;
-    @BindView(R.id.webView)
-    WebView webView;
+    @BindView(R.id.tvHead) TextView tvHead;
+    @BindView(R.id.tvKtval) TextView tvKtval;
+    @BindView(R.id.tvVrchval) TextView tvVrchval;
+    @BindView(R.id.tvPrice) TextView tvPrice;
+    @BindView(R.id.webView) WebView webView;
+    @BindView(R.id.ivRight) ImageView ivRight;
     private VRCHPresenter mPresenter = new VRCHPresenter(this);
 
     @Override
@@ -74,14 +71,18 @@ public class VRCHActivity extends BaseActivity implements VRCHContract.View {
     @Override
     public void configView() {
         tvHead.setText("VRCH交易");
+        ivRight.setImageResource(R.drawable.header_1);
         mPresenter.attachView(this);
         dialog.show();
         mPresenter.getVrchInfo();
     }
 
-    @OnClick({R.id.ivBack, R.id.rlOut, R.id.rlIn})
+    @OnClick({R.id.ivBack, R.id.rlOut, R.id.rlIn,R.id.ivRight})
     void onClick(View view) {
         switch (view.getId()) {
+            case R.id.ivRight:
+                startToActivity(KeyActivity.class);
+                break;
             case R.id.ivBack:
                 finish();
                 break;

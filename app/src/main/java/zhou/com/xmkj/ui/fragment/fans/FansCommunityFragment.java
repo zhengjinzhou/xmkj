@@ -81,6 +81,7 @@ public class FansCommunityFragment extends BaseFragment implements FansContract.
     public void getFansListSuccess(FansListBean fansListBean) {
         Log.d(TAG, "getFansListSuccess: "+fansListBean.toString());
         FansListBean.DataBean data = fansListBean.getData();
+        mAdapter.clear();
         mAdapter.add(data);
         mAdapter.notifyDataSetChanged();
     }

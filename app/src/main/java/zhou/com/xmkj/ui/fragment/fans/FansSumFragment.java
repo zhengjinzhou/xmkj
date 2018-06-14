@@ -81,6 +81,7 @@ public class FansSumFragment extends BaseFragment implements FansContract.View{
     public void getFansListSuccess(FansListBean fansListBean) {
         Log.d(TAG, "getFansListSuccess: "+fansListBean.toString());
         FansListBean.DataBean data = fansListBean.getData();
+        mAdapter.clear();
         mAdapter.add(data);
         mAdapter.notifyDataSetChanged();
     }

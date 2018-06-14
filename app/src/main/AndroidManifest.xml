@@ -84,7 +84,10 @@
         <activity android:name=".ui.activity.AddressActivity" />
         <activity android:name=".ui.activity.vrch.VrchOutActivity" />
         <activity android:name=".ui.activity.vrch.VrchInActivity" />
-        <activity android:name=".ui.activity.current.Investment2Activity"></activity>
+        <activity android:name=".ui.activity.current.Investment2Activity" />
+        <activity android:name=".ui.activity.AddAddressActivity" />
+        <activity android:name=".ui.activity.vrch.KeyActivity" />
+        <activity android:name=".ui.activity.current.Vrch_SunActivity"></activity>
     </application>
 
 </manifest>

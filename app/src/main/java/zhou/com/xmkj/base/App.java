@@ -6,6 +6,7 @@ import android.content.Context;
 import com.qiniu.android.common.FixedZone;
 import com.qiniu.android.storage.Configuration;
 import com.qiniu.android.storage.UploadManager;
+import com.uuzuche.lib_zxing.activity.ZXingLibrary;
 
 import zhou.com.xmkj.bean.LoginBean;
 import zhou.com.xmkj.bean.UserInfoBean;
@@ -26,6 +27,7 @@ public class App extends Application {
         super.onCreate();
         app = this;
         mContext = this;
+        ZXingLibrary.initDisplayOpinion(this);
         qiniu();
     }
 

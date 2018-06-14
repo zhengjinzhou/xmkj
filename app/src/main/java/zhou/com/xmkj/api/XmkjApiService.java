@@ -9,11 +9,13 @@ import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.QueryMap;
 import rx.Observable;
+import zhou.com.xmkj.bean.AddAddressBean;
 import zhou.com.xmkj.bean.AddressBean;
 import zhou.com.xmkj.bean.BaseBean;
 import zhou.com.xmkj.bean.FansListBean;
 import zhou.com.xmkj.bean.IndexBean;
 import zhou.com.xmkj.bean.IntradeBean;
+import zhou.com.xmkj.bean.InvestBean;
 import zhou.com.xmkj.bean.LoginBean;
 import zhou.com.xmkj.bean.MyFansBean;
 import zhou.com.xmkj.bean.RewardDetailBean;
@@ -22,6 +24,7 @@ import zhou.com.xmkj.bean.TradingBean;
 import zhou.com.xmkj.bean.UserInfoBean;
 import zhou.com.xmkj.bean.VrchInfoBean;
 import zhou.com.xmkj.bean.WalletBean;
+import zhou.com.xmkj.bean.WalletMoreBean;
 
 /**
  * Created by zhou on 2018/5/25.
@@ -283,6 +286,22 @@ public interface XmkjApiService {
     getRewardDetail(@Field("id") int id, @Field("token") String token,@Field("page") int page, @Field("pagesize") int pagesize);
 
     /**
+     * 钱包明细
+     * 钱包类型,0:定仓主链,1:定仓子链,2:流通子链,3:交易子链,4:重消积分,5:注册链
+     * @param id
+     * @param token
+     * @param page
+     * @param pagesize
+     * @param type
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("intrade/getWalletDetail")
+    Observable<WalletMoreBean>
+    getRewardMore(@Field("id") int id, @Field("token") String token,@Field("page") int page, @Field("pagesize") int pagesize,@Field("type")int type);
+
+
+    /**
      * 交易大厅首页
      * @param id
      * @param token
@@ -351,4 +370,41 @@ public interface XmkjApiService {
     @POST("intrade/userTransfer")
     Observable<BaseBean>
     userTransfer(@Field("id") int id, @Field("token") String token,@Field("type") int type, @Field("username") String username,@Field("money")String money);
+
+    /**
+     * 获取流通投资首页
+     * @param id
+     * @param token
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("intrade/transferIndex")
+    Observable<InvestBean>
+    getInvestIndex(@Field("id") int id, @Field("token") String token);
+
+    /**
+     * 添加收获地址
+     * @param id
+     * @param token
+     * @param username
+     * @param mobile
+     * @param address
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("user/addUserAddress")
+    Observable<AddAddressBean>
+    addUserAddress(@Field("id") int id,
+                   @Field("token") String token,
+                   @Field("username") String username,
+                   @Field("mobile") String mobile,
+                   @Field("address") String address);
+
+    @FormUrlEncoded
+    @POST("outtrade/editKey")
+    Observable<BaseBean>
+    editKey(@Field("id") int id,
+            @Field("token") String token,
+            @Field("access_key") String access_key,
+            @Field("secret_key") String secret_key);
 }
