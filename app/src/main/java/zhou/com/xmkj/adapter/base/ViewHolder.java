@@ -36,6 +36,14 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     }
 
     /**
+     * 获取item布局
+     *
+     * @return
+     */
+    public View getItemView() {
+        return convertView;
+    }
+    /**
      * 通过viewId获取控件
      *
      * @param viewId

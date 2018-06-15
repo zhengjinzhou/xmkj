@@ -19,6 +19,8 @@ import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,6 +30,8 @@ import com.bumptech.glide.Glide;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -39,7 +43,12 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import zhou.com.xmkj.R;
 import zhou.com.xmkj.base.App;
 import zhou.com.xmkj.base.BaseActivity;
+import zhou.com.xmkj.bean.BaseBean;
+import zhou.com.xmkj.bean.QiNiuBean;
 import zhou.com.xmkj.ui.activity.personmessage.TipActivity;
+import zhou.com.xmkj.ui.contract.UserContract;
+import zhou.com.xmkj.ui.presenter.UserPresenter;
+import zhou.com.xmkj.utils.QiNiuUtils;
 import zhou.com.xmkj.utils.ToastUtils;
 
 /**
@@ -47,9 +56,10 @@ import zhou.com.xmkj.utils.ToastUtils;
  * 个人信息
  */
 
-public class UserInfoActivity extends BaseActivity {
+public class UserInfoActivity extends BaseActivity implements UserContract.View{
 
     private static final int REQUEST_PICK_IMAGE = 1;
+    private static final String TAG = "UserInfoActivity";
     @BindView(R.id.tvHead) TextView tvHead;
     @BindView(R.id.tvNickname) TextView tvNickname;
     @BindView(R.id.CircleImageView) CircleImageView circleImageView;
@@ -62,6 +72,10 @@ public class UserInfoActivity extends BaseActivity {
     private static final int CHOOSE_PHOTO = 3;//打开相册
     public static File tempFile;
     private Uri imageUri;
+    private UserPresenter mPresenter = new UserPresenter(this);
+    private String txGenderString = "1";
+    String imagePath = "";
+
 
     @Override
     public int getLayout() {
@@ -82,6 +96,7 @@ public class UserInfoActivity extends BaseActivity {
 
     @Override
     public void configView() {
+        mPresenter.attachView(this);
         tvHead.setText(R.string.my_userinfo);
         tvRight.setVisibility(View.VISIBLE);
         tvRight.setText("保存");
@@ -92,7 +107,8 @@ public class UserInfoActivity extends BaseActivity {
     void onClick(View view) {
         switch (view.getId()) {
             case R.id.tvRight://保存
-
+                dialog.show();
+                mPresenter.editUserSuccess();
                 break;
             case R.id.rlNickname:
                 startToActivity(NicknameActivity.class);
@@ -107,15 +123,15 @@ public class UserInfoActivity extends BaseActivity {
                 OptionsPickerView pickerView = new OptionsPickerView.Builder(this, new OptionsPickerView.OnOptionsSelectListener() {
                     @Override
                     public void onOptionsSelect(int options1, int options2, int options3, View v) {
-                        String tx = mData.get(options1);
-                        tvGender.setText(tx);
+                        txGenderString = mData.get(options1);
+                        tvGender.setText(txGenderString);
                     }
                 }).build();
                 pickerView.setPicker(mData);
                 pickerView.show();
                 break;
             case R.id.rlMyIcon:
-               // selectPicture();
+                selectPicture();
                 break;
             case R.id.rlAddress://收货地址
                 startToActivity(AddressActivity.class);
@@ -145,8 +161,8 @@ public class UserInfoActivity extends BaseActivity {
                                 Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
                     } else {
                         Intent intent = new Intent(Intent.ACTION_PICK);
-                        intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,"/image/*");
-                        startActivityForResult(intent,REQUEST_PICK_IMAGE);
+                        intent.setType("image/*");
+                        startActivityForResult(intent, CHOOSE_PHOTO);
                     }
                 } else if (which == 1) {
                     //拍照
@@ -226,6 +242,8 @@ public class UserInfoActivity extends BaseActivity {
                     try {
                         Bitmap bitmap = BitmapFactory.decodeStream(getContentResolver()
                                 .openInputStream(imageUri));
+                        imagePath = saveCroppedImage(bitmap);
+
                         circleImageView.setImageBitmap(bitmap);
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
@@ -242,7 +260,7 @@ public class UserInfoActivity extends BaseActivity {
     }
     @TargetApi(19)
     private void handleImageOnKitKat(Intent data) {
-        String imagePath = null;
+
         Uri uri = data.getData();
         if (DocumentsContract.isDocumentUri(this, uri)) {
             //如果是document类型的URI，则通过document id 处理
@@ -288,4 +306,62 @@ public class UserInfoActivity extends BaseActivity {
         return path;
     }
 
+    @Override
+    public void editUserSuccess(BaseBean baseBean) {
+        Log.d(TAG, "editUserSuccess: "+baseBean.toString());
+        ToastUtils.showLongToast(baseBean.getMsg());
+
+        if (baseBean.getCode()==200){
+            //上传到七牛
+            QiNiuBean qiNiuBean = App.getInstance().getQiNiuBean();
+            if (qiNiuBean.getData()!=null){
+                QiNiuUtils.uploadImageToQiniu(imagePath,qiNiuBean.getData().getUpToken());
+            }
+        }
+    }
+
+    private String saveCroppedImage(Bitmap bmp) {
+        File file = new File("/sdcard/myFolder");
+        if (!file.exists())
+            file.mkdir();
+
+        String newFilePath = "/sdcard/myFolder" + "/" + System.currentTimeMillis() + "_cropped" +  ".jpg";
+        file = new File(newFilePath);
+        try {
+            file.createNewFile();
+            FileOutputStream fos = new FileOutputStream(file);
+            bmp.compress(Bitmap.CompressFormat.JPEG, 90, fos);
+            fos.flush();
+            fos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return newFilePath;
+    }
+
+    @Override
+    public String setAvater() {
+        Log.d(TAG, "setAvater: "+imagePath);
+        return imagePath;
+    }
+
+    @Override
+    public String setGender() {
+        Log.d(TAG, "setGender: "+txGenderString);
+        String pos = "1";
+        if (txGenderString.equals("女")){
+            pos = "2";
+        }
+        return pos;
+    }
+
+    @Override
+    public void showError() {
+        dialog.dismiss();
+    }
+
+    @Override
+    public void complete() {
+        dialog.dismiss();
+    }
 }

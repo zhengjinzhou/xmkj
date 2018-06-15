@@ -16,6 +16,7 @@
         android:background="@color/common_bg" />
 
     <RelativeLayout
+        android:id="@+id/rlChina1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/dp_size_16">
@@ -42,6 +43,7 @@
         android:background="@color/common_bg" />
 
     <RelativeLayout
+        android:id="@+id/rlChina2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/dp_size_16">
@@ -68,6 +70,7 @@
         android:background="@color/common_bg" />
 
     <RelativeLayout
+        android:id="@+id/rlEnglish"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/dp_size_16">

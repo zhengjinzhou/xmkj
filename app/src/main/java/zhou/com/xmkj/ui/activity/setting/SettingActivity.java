@@ -21,6 +21,7 @@ import zhou.com.xmkj.ui.activity.LoginActivity;
 import zhou.com.xmkj.ui.activity.MainActivity;
 import zhou.com.xmkj.ui.contract.SettingContract;
 import zhou.com.xmkj.ui.presenter.SettingPresenter;
+import zhou.com.xmkj.utils.AppManager;
 import zhou.com.xmkj.utils.ToastUtils;
 
 public class SettingActivity extends BaseActivity implements SettingContract.View{
@@ -43,6 +44,7 @@ public class SettingActivity extends BaseActivity implements SettingContract.Vie
 
     @Override
     public void configView() {
+        AppManager.getAppManager().addActivity(this);
         mPresenter.attachView(this);
         tvHead.setText("设置");
         UserInfoBean userInfoBean = App.getInstance().getUserInfoBean();
@@ -52,9 +54,12 @@ public class SettingActivity extends BaseActivity implements SettingContract.Vie
         }
     }
 
-    @OnClick({R.id.ivBack,R.id.rlPassword,R.id.rlZhifu,R.id.rlAbout,R.id.btExit})
+    @OnClick({R.id.ivBack,R.id.rlPassword,R.id.rlZhifu,R.id.rlAbout,R.id.btExit,R.id.rlLanguage})
     void onClick(View view){
         switch (view.getId()){
+            case R.id.rlLanguage:
+                startToActivity(SetLanguageActivity.class);
+                break;
             case R.id.ivBack:
                 finish();
                 break;
@@ -101,8 +106,8 @@ public class SettingActivity extends BaseActivity implements SettingContract.Vie
     public void LogoutSuccess(BaseBean baseBean) {
         Log.d(TAG, "LogoutSuccess: "+baseBean.toString());
         if (baseBean.getCode()==200){
-            ToastUtils.showLongToast(baseBean.getMsg()+"待续");
-            //finish();
+            ToastUtils.showLongToast(baseBean.getMsg());
+            AppManager.getAppManager().finishAllActivity();
         }else {
             ToastUtils.showLongToast(baseBean.getMsg());
         }

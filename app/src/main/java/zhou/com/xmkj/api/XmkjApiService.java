@@ -2,6 +2,7 @@ package zhou.com.xmkj.api;
 
 import java.util.Map;
 
+import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -18,6 +19,7 @@ import zhou.com.xmkj.bean.IntradeBean;
 import zhou.com.xmkj.bean.InvestBean;
 import zhou.com.xmkj.bean.LoginBean;
 import zhou.com.xmkj.bean.MyFansBean;
+import zhou.com.xmkj.bean.QiNiuBean;
 import zhou.com.xmkj.bean.RewardDetailBean;
 import zhou.com.xmkj.bean.ShareSalesBean;
 import zhou.com.xmkj.bean.TradingBean;
@@ -44,6 +46,9 @@ public interface XmkjApiService {
     Observable<LoginBean>
     login(@Field("username") String username, @Field("password") String password);
 
+
+    @GET("common/uploadToken")
+    Call<QiNiuBean> uploadToken();
 
     /**
      * 获取用户信息-在我的界面这里请求
@@ -192,7 +197,7 @@ public interface XmkjApiService {
     /**
      * 多参数上传
      * 不定数参数
-     *
+     * 修改个人信息
      * @return
      */
     @FormUrlEncoded
@@ -366,6 +371,15 @@ public interface XmkjApiService {
     Observable<BaseBean>
     updateUserVip(@Field("id") int id, @Field("token") String token,@Field("rname") String rname, @Field("pos") int pos);
 
+    /**
+     *
+     * @param id
+     * @param token
+     * @param type
+     * @param username
+     * @param money
+     * @return
+     */
     @FormUrlEncoded
     @POST("intrade/userTransfer")
     Observable<BaseBean>
@@ -400,6 +414,14 @@ public interface XmkjApiService {
                    @Field("mobile") String mobile,
                    @Field("address") String address);
 
+    /**
+     *
+     * @param id
+     * @param token
+     * @param access_key
+     * @param secret_key
+     * @return
+     */
     @FormUrlEncoded
     @POST("outtrade/editKey")
     Observable<BaseBean>
@@ -407,4 +429,19 @@ public interface XmkjApiService {
             @Field("token") String token,
             @Field("access_key") String access_key,
             @Field("secret_key") String secret_key);
+
+    /**
+     * 删除收货地址
+     *
+     * @param id
+     * @param token
+     * @param pid
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("user/delUserAddress")
+    Observable<BaseBean>
+    delUserAddress(@Field("id") int id,
+            @Field("token") String token,
+            @Field("pid") int pid);
 }

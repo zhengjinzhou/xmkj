@@ -47,7 +47,7 @@ public class CodeActivity extends BaseActivity {
 
         Glide.with(this).load(avatar).into(ivAvater);
 
-        Bitmap mBitmap = CodeUtils.createImage(avatar, 400, 400, BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));
+        Bitmap mBitmap = CodeUtils.createImage(avatar, 400, 400, BitmapFactory.decodeFile(avatar));
         ivCode.setImageBitmap(mBitmap);
     }
 

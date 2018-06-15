@@ -4,6 +4,7 @@ import java.util.Map;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -18,6 +19,7 @@ import zhou.com.xmkj.bean.IntradeBean;
 import zhou.com.xmkj.bean.InvestBean;
 import zhou.com.xmkj.bean.LoginBean;
 import zhou.com.xmkj.bean.MyFansBean;
+import zhou.com.xmkj.bean.QiNiuBean;
 import zhou.com.xmkj.bean.RewardDetailBean;
 import zhou.com.xmkj.bean.ShareSalesBean;
 import zhou.com.xmkj.bean.TradingBean;
@@ -55,6 +57,9 @@ public class XmkjApi {
         return service.login(username, password);
     }
 
+    public Call<QiNiuBean> uploadToken(){
+        return service.uploadToken();
+    }
     public Observable<UserInfoBean> getUserInfo(String id, String token) {
         return service.getUserInfo(id, token);
     }
@@ -176,5 +181,9 @@ public class XmkjApi {
 
     public Observable<BaseBean> editKey(int id, String token, String access_key, String secret_key) {
         return service.editKey(id, token, access_key, secret_key);
+    }
+
+    public Observable<BaseBean> delUserAddress(int id, String token, int pid) {
+        return service.delUserAddress(id, token, pid);
     }
 }

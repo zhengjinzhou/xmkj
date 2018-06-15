@@ -9,6 +9,7 @@ import com.qiniu.android.storage.UploadManager;
 import com.uuzuche.lib_zxing.activity.ZXingLibrary;
 
 import zhou.com.xmkj.bean.LoginBean;
+import zhou.com.xmkj.bean.QiNiuBean;
 import zhou.com.xmkj.bean.UserInfoBean;
 
 /**
@@ -21,6 +22,7 @@ public class App extends Application {
     private static Context mContext;
     protected LoginBean loginBean;
     protected UserInfoBean userInfoBean;
+    protected QiNiuBean qiNiuBean;
 
     @Override
     public void onCreate() {
@@ -68,5 +70,13 @@ public class App extends Application {
 
     public void setUserInfoBean(UserInfoBean userInfoBean) {
         this.userInfoBean = userInfoBean;
+    }
+
+    public QiNiuBean getQiNiuBean() {
+        return qiNiuBean;
+    }
+
+    public void setQiNiuBean(QiNiuBean qiNiuBean) {
+        this.qiNiuBean = qiNiuBean;
     }
 }

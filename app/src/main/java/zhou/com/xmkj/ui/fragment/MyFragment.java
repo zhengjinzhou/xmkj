@@ -35,6 +35,7 @@ import zhou.com.xmkj.ui.activity.UserInfoActivity;
 import zhou.com.xmkj.ui.adapter.MyBaseAdapter;
 import zhou.com.xmkj.ui.contract.UserInfoContract;
 import zhou.com.xmkj.ui.presenter.UserInfoPresenter;
+import zhou.com.xmkj.utils.AppManager;
 import zhou.com.xmkj.utils.ToastUtils;
 
 /**
@@ -74,7 +75,7 @@ public class MyFragment extends BaseFragment implements UserInfoContract.View{
         List<MyBaseBean> data = new ArrayList<>();
         data.add(new MyBaseBean(MyMessageActivity.class,getString(R.string.my_news),R.drawable.icon_11));
         data.add(new MyBaseBean(RealNameAuthenticationActivity.class,getString(R.string.txt_real_name_authentication),R.drawable.icon_47));
-        data.add(new MyBaseBean(AccountMessageActivity.class,"账户信息",R.drawable.icon_9));
+        data.add(new MyBaseBean(AccountMessageActivity.class,"账户信息",R.drawable.data));
         data.add(new MyBaseBean(CodeActivity.class,getString(R.string.txt_my_code),R.drawable.icon_10));
         data.add(new MyBaseBean(RegisterActivity.class,getString(R.string.txt_register),R.drawable.icon_9));
         data.add(new MyBaseBean(HelpActivity.class,getString(R.string.txt_help_center),R.drawable.icon_7));
@@ -90,9 +91,15 @@ public class MyFragment extends BaseFragment implements UserInfoContract.View{
         ivBack.setVisibility(View.GONE);
         tvHead.setText(R.string.txt_my_fragment);
         ivRight.setImageResource(R.drawable.header_1);
-        mPresenter.getUserInfo();
+
     }
 
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mPresenter.getUserInfo();
+    }
 
     @Override
     public void getUserInfoSuccess(UserInfoBean userInfoBean) {
@@ -124,7 +131,6 @@ public class MyFragment extends BaseFragment implements UserInfoContract.View{
 
     @Override
     public void complete() {
-
     }
 
     @Override
@@ -152,7 +158,7 @@ public class MyFragment extends BaseFragment implements UserInfoContract.View{
             case R.id.rlMy://会员充值
                 startToActivity(HallMembersActivity.class);
                 break;
-            case R.id.ivRight:
+            case R.id.ivRight://设置
                 startToActivity(SettingActivity.class);
                 break;
         }

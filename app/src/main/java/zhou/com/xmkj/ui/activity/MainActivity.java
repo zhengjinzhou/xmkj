@@ -18,6 +18,7 @@ import zhou.com.xmkj.ui.fragment.IndexFragment;
 import zhou.com.xmkj.ui.fragment.LifeFragment;
 import zhou.com.xmkj.ui.fragment.MessageFragment;
 import zhou.com.xmkj.ui.fragment.MyFragment;
+import zhou.com.xmkj.utils.AppManager;
 
 public class MainActivity extends BaseActivity {
 
@@ -62,6 +63,7 @@ public class MainActivity extends BaseActivity {
                 .commit();
         setCheckImager(2);
 
+        AppManager.getAppManager().addActivity(this);
     }
 
     /**

@@ -12,6 +12,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 import zhou.com.xmkj.R;
+import zhou.com.xmkj.base.App;
 import zhou.com.xmkj.base.BaseActivity;
 import zhou.com.xmkj.bean.BaseBean;
 import zhou.com.xmkj.ui.contract.RegisterContract;
@@ -43,7 +44,9 @@ public class RegisterActivity extends BaseActivity implements RegisterContract.V
 
     @Override
     public void initData() {
-
+        if (App.getInstance().getLoginBean()!=null){
+            etMan.setText(App.getInstance().getUserInfoBean().getData().getUsername());
+        }
     }
 
     @Override

@@ -5,6 +5,9 @@ import android.util.Log;
 
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import rx.Observer;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
@@ -13,6 +16,7 @@ import zhou.com.xmkj.R;
 import zhou.com.xmkj.api.XmkjApi;
 import zhou.com.xmkj.base.RxPresenter;
 import zhou.com.xmkj.bean.LoginBean;
+import zhou.com.xmkj.bean.QiNiuBean;
 import zhou.com.xmkj.ui.activity.LoginActivity;
 import zhou.com.xmkj.ui.contract.LoginContract;
 import zhou.com.xmkj.utils.MD5;
@@ -55,6 +59,22 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
                     }
                 });
         addSubscrebe(subscription);
+    }
+
+    @Override
+    public void uploadToken() {
+        xmkjApi.uploadToken().enqueue(new Callback<QiNiuBean>() {
+            @Override
+            public void onResponse(Call<QiNiuBean> call, Response<QiNiuBean> response) {
+                QiNiuBean qiNiuBean = response.body();
+                mView.uploadTokenSuccess(qiNiuBean);
+            }
+
+            @Override
+            public void onFailure(Call<QiNiuBean> call, Throwable t) {
+                mView.showError();
+            }
+        });
     }
 
     @Override

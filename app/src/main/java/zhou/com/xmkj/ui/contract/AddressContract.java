@@ -2,6 +2,7 @@ package zhou.com.xmkj.ui.contract;
 
 import zhou.com.xmkj.base.BaseContract;
 import zhou.com.xmkj.bean.AddressBean;
+import zhou.com.xmkj.bean.BaseBean;
 
 /**
  * Created by zhou
@@ -11,6 +12,8 @@ import zhou.com.xmkj.bean.AddressBean;
 public interface AddressContract {
     interface View extends BaseContract.BaseView {
         void getAddressListSuccess(AddressBean addressBean);
+
+        void delUserAddressSuccess(BaseBean baseBean);
 
         int setPage();
 
@@ -23,5 +26,7 @@ public interface AddressContract {
         int getPage();
 
         int getPageSize();
+
+        void delUserAddress(int pid);
     }
 }

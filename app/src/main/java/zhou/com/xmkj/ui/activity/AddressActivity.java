@@ -13,6 +13,8 @@ import butterknife.OnClick;
 import zhou.com.xmkj.R;
 import zhou.com.xmkj.base.BaseActivity;
 import zhou.com.xmkj.bean.AddressBean;
+import zhou.com.xmkj.bean.BaseBean;
+import zhou.com.xmkj.common.OnRvItemClickListener;
 import zhou.com.xmkj.ui.adapter.AddressAdapter;
 import zhou.com.xmkj.ui.contract.AddressContract;
 import zhou.com.xmkj.ui.presenter.AddressPresenter;
@@ -22,7 +24,7 @@ import zhou.com.xmkj.utils.ToastUtils;
  * 收货地址
  *
  */
-public class AddressActivity extends BaseActivity implements AddressContract.View{
+public class AddressActivity extends BaseActivity implements AddressContract.View,OnRvItemClickListener<AddressBean.DataBean.ListBean> {
 
     private static final String TAG = "AddressActivity";
     @BindView(R.id.tvHead) TextView tvHead;
@@ -47,6 +49,7 @@ public class AddressActivity extends BaseActivity implements AddressContract.Vie
 
         ArrayList<AddressBean.DataBean.ListBean> dataBeans = new ArrayList<>();
         adapter = new AddressAdapter(this,R.layout.recycler_address,dataBeans);
+        adapter.setOnItemClickListener(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
     }
@@ -70,6 +73,15 @@ public class AddressActivity extends BaseActivity implements AddressContract.Vie
             adapter.clear();
             adapter.add(list);
             adapter.notifyDataSetChanged();
+        }
+    }
+
+    @Override
+    public void delUserAddressSuccess(BaseBean baseBean) {
+        Log.d(TAG, "delUserAddressSuccess: "+baseBean.toString());
+        ToastUtils.showLongToast(baseBean.getMsg());
+        if (baseBean.getCode()==200){
+            mPresenter.getAddressList();
         }
     }
 
@@ -110,5 +122,12 @@ public class AddressActivity extends BaseActivity implements AddressContract.Vie
         if (mPresenter != null) {
             mPresenter.detachView();
         }
+    }
+
+
+    @Override
+    public void onItemClick(View view, int position, AddressBean.DataBean.ListBean data) {
+        dialog.show();
+        mPresenter.delUserAddress(data.getId());
     }
 }

@@ -11,6 +11,7 @@ import zhou.com.xmkj.api.XmkjApi;
 import zhou.com.xmkj.base.App;
 import zhou.com.xmkj.base.RxPresenter;
 import zhou.com.xmkj.bean.AddressBean;
+import zhou.com.xmkj.bean.BaseBean;
 import zhou.com.xmkj.bean.LoginBean;
 import zhou.com.xmkj.ui.activity.AddressActivity;
 import zhou.com.xmkj.ui.activity.current.CurrentActivity;
@@ -66,4 +67,29 @@ public class AddressPresenter extends RxPresenter<AddressContract.View> implemen
     public int getPageSize() {
         return mView.setPageSize();
     }
+
+    @Override
+    public void delUserAddress(int pid) {
+        LoginBean.DataBean data = App.getInstance().getLoginBean().getData();
+        Subscription subscribe = xmkjApi.delUserAddress(data.getId(), data.getToken(),pid)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Observer<BaseBean>() {
+                    @Override
+                    public void onCompleted() {
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                    }
+
+                    @Override
+                    public void onNext(BaseBean baseBean) {
+                        mView.delUserAddressSuccess(baseBean);
+                    }
+                });
+        addSubscrebe(subscribe);
+    }
+
+
 }

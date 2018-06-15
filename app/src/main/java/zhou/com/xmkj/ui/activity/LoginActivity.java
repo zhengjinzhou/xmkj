@@ -13,6 +13,7 @@ import zhou.com.xmkj.R;
 import zhou.com.xmkj.base.App;
 import zhou.com.xmkj.base.BaseActivity;
 import zhou.com.xmkj.bean.LoginBean;
+import zhou.com.xmkj.bean.QiNiuBean;
 import zhou.com.xmkj.ui.activity.setting.SettingPasswordActivity;
 import zhou.com.xmkj.ui.contract.LoginContract;
 import zhou.com.xmkj.ui.presenter.LoginPresenter;
@@ -62,6 +63,7 @@ public class LoginActivity extends BaseActivity implements LoginContract.View{
                 }
                 dialog.show();
                 mPresenter.login();
+                mPresenter.uploadToken();//获取七牛token
                 break;
             case R.id.ivLook:
                 if (etPsd.getInputType() == 129) {
@@ -88,6 +90,14 @@ public class LoginActivity extends BaseActivity implements LoginContract.View{
             finish();
         }else {
             ToastUtils.showLongToast(loginBean.getMsg());
+        }
+    }
+
+    @Override
+    public void uploadTokenSuccess(QiNiuBean qiNiuBean) {
+        Log.d(TAG, "uploadTokenSuccess: "+qiNiuBean.toString());
+        if (qiNiuBean.getCode()==200){
+            App.getInstance().setQiNiuBean(qiNiuBean);
         }
     }
 
